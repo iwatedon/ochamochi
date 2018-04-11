@@ -1,0 +1,26 @@
+PODS:
+  - DateToolsSwift (2.0.3)
+  - Floaty (4.0.0)
+  - OAuthSwift (1.1.2)
+  - Realm (3.2.0):
+    - Realm/Headers (= 3.2.0)
+  - Realm/Headers (3.2.0)
+  - RealmSwift (3.2.0):
+    - Realm (= 3.2.0)
+
+DEPENDENCIES:
+  - DateToolsSwift
+  - Floaty
+  - OAuthSwift (= 1.1.2)
+  - RealmSwift (= 3.2.0)
+
+SPEC CHECKSUMS:
+  DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
+  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
+  OAuthSwift: 5aa5659984d3ca3206ba636a9e7a9c6626b2e8bd
+  Realm: ae552b9b9eca3a12374a589fa842f220e286a80a
+  RealmSwift: 05727129547dcab3fe828bd87bc30be903736b9c
+
+PODFILE CHECKSUM: f947f067caf418d6ecd73085ce5e739c81e3ba8b
+
+COCOAPODS: 1.4.0

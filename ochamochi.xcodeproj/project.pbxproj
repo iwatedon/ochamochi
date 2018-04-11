@@ -1,0 +1,903 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D9D6E7F32B1B9F5A9FF859C /* Pods_ochamochiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4A82FCD03BA707B4D5BE37 /* Pods_ochamochiUITests.framework */; };
+		D0FB98A60EAD832B5F5DF9A2 /* Pods_ochamochi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B041D39EB80AE2EEEEFFB220 /* Pods_ochamochi.framework */; };
+		DB1D942E206CB56500904759 /* NewInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D942D206CB56500904759 /* NewInstanceViewController.swift */; };
+		DB1D9430206CB8FA00904759 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D942F206CB8FA00904759 /* MainTabBarController.swift */; };
+		DB1D9433206CC28200904759 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D9432206CC28200904759 /* Instance.swift */; };
+		DB1D9435206E18FB00904759 /* AuthorizeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D9434206E18FB00904759 /* AuthorizeWebViewController.swift */; };
+		DB1D9437206E291400904759 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D9436206E291400904759 /* Account.swift */; };
+		DB1D94392071F90200904759 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D94382071F90200904759 /* Util.swift */; };
+		DB1D943C207206A400904759 /* String+removeHTMLTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D943B207206A400904759 /* String+removeHTMLTag.swift */; };
+		DB1D943E20720CFA00904759 /* Toot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D943D20720CFA00904759 /* Toot.swift */; };
+		DB1D94402072139D00904759 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D943F2072139D00904759 /* TimelineViewController.swift */; };
+		DB1D94422072167800904759 /* FederatedTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D94412072167800904759 /* FederatedTimelineViewController.swift */; };
+		DB1D944420721EA500904759 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D944320721EA500904759 /* UIImage+resize.swift */; };
+		DB1D9446207226CC00904759 /* TimelineViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1D9445207226CC00904759 /* TimelineViewCell.xib */; };
+		DB3F9F4420735410001C03F4 /* MakeTootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F9F4320735410001C03F4 /* MakeTootViewController.swift */; };
+		DB3F9F4620736273001C03F4 /* Date+timeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F9F4520736273001C03F4 /* Date+timeAgo.swift */; };
+		DB3F9F48207363A1001C03F4 /* DateFormatter+date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F9F47207363A1001C03F4 /* DateFormatter+date.swift */; };
+		DB7162D8205B94100013CC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162D7205B94100013CC34 /* AppDelegate.swift */; };
+		DB7162DA205B94100013CC34 /* HomeTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162D9205B94100013CC34 /* HomeTimelineViewController.swift */; };
+		DB7162DC205B94100013CC34 /* LocalTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162DB205B94100013CC34 /* LocalTimelineViewController.swift */; };
+		DB7162DF205B94100013CC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB7162DD205B94100013CC34 /* Main.storyboard */; };
+		DB7162E1205B94100013CC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7162E0205B94100013CC34 /* Assets.xcassets */; };
+		DB7162E4205B94100013CC34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB7162E2205B94100013CC34 /* LaunchScreen.storyboard */; };
+		DB7162EF205B94100013CC34 /* ochamochiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162EE205B94100013CC34 /* ochamochiTests.swift */; };
+		DB7162FA205B94100013CC34 /* ochamochiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162F9205B94100013CC34 /* ochamochiUITests.swift */; };
+		DBC3BBB4207610C1005211FC /* FavouritesTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBB3207610C1005211FC /* FavouritesTimelineViewController.swift */; };
+		DBC3BBB6207C8243005211FC /* TimelineViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */; };
+		DBC3BBBA207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */; };
+		DBC3BBBB207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBC3BBB8207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf */; };
+		DBC3BBBC207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBC3BBB9207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf */; };
+		DBC3BBBE207CB780005211FC /* UIColor+buttonDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBBD207CB780005211FC /* UIColor+buttonDefault.swift */; };
+		DBC3BBC0207DAE75005211FC /* NSAttributedString+replaceEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBBF207DAE75005211FC /* NSAttributedString+replaceEmoji.swift */; };
+		DBC3BBC2207DAEA2005211FC /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC1207DAEA2005211FC /* Emoji.swift */; };
+		DBC3BBC4207DC5FE005211FC /* UIImage+fontAwesomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */; };
+		DBC3BBC6207F2790005211FC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC5207F2790005211FC /* WebViewController.swift */; };
+		DBE11FF620749BCD0095AACE /* SelectAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */; };
+		DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF866D12072282200EBF659 /* TimelineViewCell.swift */; };
+		EF2442346AAD017336F283A2 /* Pods_ochamochiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A09B9A16338A371493C4A3 /* Pods_ochamochiTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB7162EB205B94100013CC34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB7162CC205B94100013CC34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB7162D3205B94100013CC34;
+			remoteInfo = ochamochi;
+		};
+		DB7162F6205B94100013CC34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB7162CC205B94100013CC34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB7162D3205B94100013CC34;
+			remoteInfo = ochamochi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21CB9BF26E32A2C3EB5407E5 /* Pods-ochamochi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ochamochi.release.xcconfig"; path = "Pods/Target Support Files/Pods-ochamochi/Pods-ochamochi.release.xcconfig"; sourceTree = "<group>"; };
+		62A09B9A16338A371493C4A3 /* Pods_ochamochiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ochamochiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C4A82FCD03BA707B4D5BE37 /* Pods_ochamochiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ochamochiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88CB997D794286931C1D63A0 /* Pods-ochamochiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ochamochiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ochamochiTests/Pods-ochamochiTests.release.xcconfig"; sourceTree = "<group>"; };
+		A67FEE6FE2B35CFD2531004B /* Pods-ochamochiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ochamochiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ochamochiUITests/Pods-ochamochiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AF697E68EF4A0524E30D5FE4 /* Pods-ochamochiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ochamochiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ochamochiTests/Pods-ochamochiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B041D39EB80AE2EEEEFFB220 /* Pods_ochamochi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ochamochi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0C12CA1644C88D33AE4C5E8 /* Pods-ochamochiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ochamochiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ochamochiUITests/Pods-ochamochiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB1D942D206CB56500904759 /* NewInstanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInstanceViewController.swift; sourceTree = "<group>"; };
+		DB1D942F206CB8FA00904759 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		DB1D9432206CC28200904759 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
+		DB1D9434206E18FB00904759 /* AuthorizeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeWebViewController.swift; sourceTree = "<group>"; };
+		DB1D9436206E291400904759 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		DB1D94382071F90200904759 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		DB1D943B207206A400904759 /* String+removeHTMLTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+removeHTMLTag.swift"; sourceTree = "<group>"; };
+		DB1D943D20720CFA00904759 /* Toot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toot.swift; sourceTree = "<group>"; };
+		DB1D943F2072139D00904759 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		DB1D94412072167800904759 /* FederatedTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FederatedTimelineViewController.swift; sourceTree = "<group>"; };
+		DB1D944320721EA500904759 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
+		DB1D9445207226CC00904759 /* TimelineViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineViewCell.xib; sourceTree = "<group>"; };
+		DB3F9F4320735410001C03F4 /* MakeTootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTootViewController.swift; sourceTree = "<group>"; };
+		DB3F9F4520736273001C03F4 /* Date+timeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+timeAgo.swift"; sourceTree = "<group>"; };
+		DB3F9F47207363A1001C03F4 /* DateFormatter+date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+date.swift"; sourceTree = "<group>"; };
+		DB7162D4205B94100013CC34 /* ochamochi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ochamochi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7162D7205B94100013CC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB7162D9205B94100013CC34 /* HomeTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTimelineViewController.swift; sourceTree = "<group>"; };
+		DB7162DB205B94100013CC34 /* LocalTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTimelineViewController.swift; sourceTree = "<group>"; };
+		DB7162DE205B94100013CC34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB7162E0205B94100013CC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB7162E3205B94100013CC34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB7162E5205B94100013CC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB7162EA205B94100013CC34 /* ochamochiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ochamochiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7162EE205B94100013CC34 /* ochamochiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ochamochiTests.swift; sourceTree = "<group>"; };
+		DB7162F0205B94100013CC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB7162F5205B94100013CC34 /* ochamochiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ochamochiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7162F9205B94100013CC34 /* ochamochiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ochamochiUITests.swift; sourceTree = "<group>"; };
+		DB7162FB205B94100013CC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBC3BBB3207610C1005211FC /* FavouritesTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTimelineViewController.swift; sourceTree = "<group>"; };
+		DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCellDelegate.swift; sourceTree = "<group>"; };
+		DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		DBC3BBB8207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		DBC3BBB9207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		DBC3BBBD207CB780005211FC /* UIColor+buttonDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+buttonDefault.swift"; sourceTree = "<group>"; };
+		DBC3BBBF207DAE75005211FC /* NSAttributedString+replaceEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+replaceEmoji.swift"; sourceTree = "<group>"; };
+		DBC3BBC1207DAEA2005211FC /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+fontAwesomeImage.swift"; sourceTree = "<group>"; };
+		DBC3BBC5207F2790005211FC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTableViewController.swift; sourceTree = "<group>"; };
+		DBF866D12072282200EBF659 /* TimelineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCell.swift; sourceTree = "<group>"; };
+		E7678EDB336A41CF36AEFF13 /* Pods-ochamochi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ochamochi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ochamochi/Pods-ochamochi.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB7162D1205B94100013CC34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0FB98A60EAD832B5F5DF9A2 /* Pods_ochamochi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7162E7205B94100013CC34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF2442346AAD017336F283A2 /* Pods_ochamochiTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7162F2205B94100013CC34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D9D6E7F32B1B9F5A9FF859C /* Pods_ochamochiUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6DE8CA8137F3A0629C31A61C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7678EDB336A41CF36AEFF13 /* Pods-ochamochi.debug.xcconfig */,
+				21CB9BF26E32A2C3EB5407E5 /* Pods-ochamochi.release.xcconfig */,
+				AF697E68EF4A0524E30D5FE4 /* Pods-ochamochiTests.debug.xcconfig */,
+				88CB997D794286931C1D63A0 /* Pods-ochamochiTests.release.xcconfig */,
+				C0C12CA1644C88D33AE4C5E8 /* Pods-ochamochiUITests.debug.xcconfig */,
+				A67FEE6FE2B35CFD2531004B /* Pods-ochamochiUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		70ED0B4304E4C904C106465B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B041D39EB80AE2EEEEFFB220 /* Pods_ochamochi.framework */,
+				62A09B9A16338A371493C4A3 /* Pods_ochamochiTests.framework */,
+				7C4A82FCD03BA707B4D5BE37 /* Pods_ochamochiUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB1D9431206CC26400904759 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB1D9432206CC28200904759 /* Instance.swift */,
+				DB1D9436206E291400904759 /* Account.swift */,
+				DB1D943D20720CFA00904759 /* Toot.swift */,
+				DBC3BBC1207DAEA2005211FC /* Emoji.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB1D943A2072068A00904759 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DB1D943B207206A400904759 /* String+removeHTMLTag.swift */,
+				DB1D944320721EA500904759 /* UIImage+resize.swift */,
+				DB3F9F4520736273001C03F4 /* Date+timeAgo.swift */,
+				DB3F9F47207363A1001C03F4 /* DateFormatter+date.swift */,
+				DBC3BBBD207CB780005211FC /* UIColor+buttonDefault.swift */,
+				DBC3BBBF207DAE75005211FC /* NSAttributedString+replaceEmoji.swift */,
+				DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DB7162CB205B94100013CC34 = {
+			isa = PBXGroup;
+			children = (
+				DB7162D6205B94100013CC34 /* ochamochi */,
+				DB7162ED205B94100013CC34 /* ochamochiTests */,
+				DB7162F8205B94100013CC34 /* ochamochiUITests */,
+				DB7162D5205B94100013CC34 /* Products */,
+				6DE8CA8137F3A0629C31A61C /* Pods */,
+				70ED0B4304E4C904C106465B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DB7162D5205B94100013CC34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB7162D4205B94100013CC34 /* ochamochi.app */,
+				DB7162EA205B94100013CC34 /* ochamochiTests.xctest */,
+				DB7162F5205B94100013CC34 /* ochamochiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB7162D6205B94100013CC34 /* ochamochi */ = {
+			isa = PBXGroup;
+			children = (
+				DB1D943A2072068A00904759 /* Extension */,
+				DB1D9431206CC26400904759 /* Model */,
+				DB7162D7205B94100013CC34 /* AppDelegate.swift */,
+				DB1D942D206CB56500904759 /* NewInstanceViewController.swift */,
+				DB1D9434206E18FB00904759 /* AuthorizeWebViewController.swift */,
+				DBC3BBC5207F2790005211FC /* WebViewController.swift */,
+				DB1D942F206CB8FA00904759 /* MainTabBarController.swift */,
+				DB1D943F2072139D00904759 /* TimelineViewController.swift */,
+				DB7162D9205B94100013CC34 /* HomeTimelineViewController.swift */,
+				DB7162DB205B94100013CC34 /* LocalTimelineViewController.swift */,
+				DB1D94412072167800904759 /* FederatedTimelineViewController.swift */,
+				DBC3BBB3207610C1005211FC /* FavouritesTimelineViewController.swift */,
+				DB3F9F4320735410001C03F4 /* MakeTootViewController.swift */,
+				DBF866D12072282200EBF659 /* TimelineViewCell.swift */,
+				DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */,
+				DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */,
+				DB1D94382071F90200904759 /* Util.swift */,
+				DBC3BBB9207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf */,
+				DBC3BBB8207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf */,
+				DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */,
+				DB7162DD205B94100013CC34 /* Main.storyboard */,
+				DB7162E0205B94100013CC34 /* Assets.xcassets */,
+				DB7162E2205B94100013CC34 /* LaunchScreen.storyboard */,
+				DB1D9445207226CC00904759 /* TimelineViewCell.xib */,
+				DB7162E5205B94100013CC34 /* Info.plist */,
+			);
+			path = ochamochi;
+			sourceTree = "<group>";
+		};
+		DB7162ED205B94100013CC34 /* ochamochiTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB7162EE205B94100013CC34 /* ochamochiTests.swift */,
+				DB7162F0205B94100013CC34 /* Info.plist */,
+			);
+			path = ochamochiTests;
+			sourceTree = "<group>";
+		};
+		DB7162F8205B94100013CC34 /* ochamochiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DB7162F9205B94100013CC34 /* ochamochiUITests.swift */,
+				DB7162FB205B94100013CC34 /* Info.plist */,
+			);
+			path = ochamochiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB7162D3205B94100013CC34 /* ochamochi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB7162FE205B94100013CC34 /* Build configuration list for PBXNativeTarget "ochamochi" */;
+			buildPhases = (
+				8278B316BC980266F0C79E00 /* [CP] Check Pods Manifest.lock */,
+				DB7162D0205B94100013CC34 /* Sources */,
+				DB7162D1205B94100013CC34 /* Frameworks */,
+				DB7162D2205B94100013CC34 /* Resources */,
+				C7D7AF996B51D48080529E03 /* [CP] Embed Pods Frameworks */,
+				995A32C296E39FDE4B186AE1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ochamochi;
+			productName = ochamochi;
+			productReference = DB7162D4205B94100013CC34 /* ochamochi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DB7162E9205B94100013CC34 /* ochamochiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB716301205B94100013CC34 /* Build configuration list for PBXNativeTarget "ochamochiTests" */;
+			buildPhases = (
+				D08F7013C3AD2D335C4BB4BE /* [CP] Check Pods Manifest.lock */,
+				DB7162E6205B94100013CC34 /* Sources */,
+				DB7162E7205B94100013CC34 /* Frameworks */,
+				DB7162E8205B94100013CC34 /* Resources */,
+				D783DD0CD9E1A119C4510863 /* [CP] Embed Pods Frameworks */,
+				3E2D6D0525BFFCB6E8C0C71B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB7162EC205B94100013CC34 /* PBXTargetDependency */,
+			);
+			name = ochamochiTests;
+			productName = ochamochiTests;
+			productReference = DB7162EA205B94100013CC34 /* ochamochiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB7162F4205B94100013CC34 /* ochamochiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB716304205B94100013CC34 /* Build configuration list for PBXNativeTarget "ochamochiUITests" */;
+			buildPhases = (
+				A7EA7DE54D05A3714774D3AE /* [CP] Check Pods Manifest.lock */,
+				DB7162F1205B94100013CC34 /* Sources */,
+				DB7162F2205B94100013CC34 /* Frameworks */,
+				DB7162F3205B94100013CC34 /* Resources */,
+				E8709DCD5149EA560B260C6B /* [CP] Embed Pods Frameworks */,
+				37475619B27BD3E289F16915 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB7162F7205B94100013CC34 /* PBXTargetDependency */,
+			);
+			name = ochamochiUITests;
+			productName = ochamochiUITests;
+			productReference = DB7162F5205B94100013CC34 /* ochamochiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB7162CC205B94100013CC34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					DB7162D3205B94100013CC34 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					DB7162E9205B94100013CC34 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DB7162D3205B94100013CC34;
+					};
+					DB7162F4205B94100013CC34 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DB7162D3205B94100013CC34;
+					};
+				};
+			};
+			buildConfigurationList = DB7162CF205B94100013CC34 /* Build configuration list for PBXProject "ochamochi" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB7162CB205B94100013CC34;
+			productRefGroup = DB7162D5205B94100013CC34 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB7162D3205B94100013CC34 /* ochamochi */,
+				DB7162E9205B94100013CC34 /* ochamochiTests */,
+				DB7162F4205B94100013CC34 /* ochamochiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB7162D2205B94100013CC34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB7162E4205B94100013CC34 /* LaunchScreen.storyboard in Resources */,
+				DBC3BBBB207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf in Resources */,
+				DB7162E1205B94100013CC34 /* Assets.xcassets in Resources */,
+				DB7162DF205B94100013CC34 /* Main.storyboard in Resources */,
+				DB1D9446207226CC00904759 /* TimelineViewCell.xib in Resources */,
+				DBC3BBBC207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
+				DBC3BBBA207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7162E8205B94100013CC34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7162F3205B94100013CC34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37475619B27BD3E289F16915 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ochamochiUITests/Pods-ochamochiUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E2D6D0525BFFCB6E8C0C71B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ochamochiTests/Pods-ochamochiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8278B316BC980266F0C79E00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ochamochi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		995A32C296E39FDE4B186AE1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ochamochi/Pods-ochamochi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7EA7DE54D05A3714774D3AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ochamochiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7D7AF996B51D48080529E03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ochamochi/Pods-ochamochi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ochamochi/Pods-ochamochi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D08F7013C3AD2D335C4BB4BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ochamochiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D783DD0CD9E1A119C4510863 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ochamochiTests/Pods-ochamochiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8709DCD5149EA560B260C6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ochamochiUITests/Pods-ochamochiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB7162D0205B94100013CC34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */,
+				DBC3BBBE207CB780005211FC /* UIColor+buttonDefault.swift in Sources */,
+				DB1D943E20720CFA00904759 /* Toot.swift in Sources */,
+				DB1D944420721EA500904759 /* UIImage+resize.swift in Sources */,
+				DB7162DC205B94100013CC34 /* LocalTimelineViewController.swift in Sources */,
+				DBC3BBB6207C8243005211FC /* TimelineViewCellDelegate.swift in Sources */,
+				DBE11FF620749BCD0095AACE /* SelectAccountTableViewController.swift in Sources */,
+				DB1D94392071F90200904759 /* Util.swift in Sources */,
+				DB1D943C207206A400904759 /* String+removeHTMLTag.swift in Sources */,
+				DB1D942E206CB56500904759 /* NewInstanceViewController.swift in Sources */,
+				DB1D94402072139D00904759 /* TimelineViewController.swift in Sources */,
+				DBC3BBC6207F2790005211FC /* WebViewController.swift in Sources */,
+				DB3F9F48207363A1001C03F4 /* DateFormatter+date.swift in Sources */,
+				DB1D9433206CC28200904759 /* Instance.swift in Sources */,
+				DB1D94422072167800904759 /* FederatedTimelineViewController.swift in Sources */,
+				DB3F9F4620736273001C03F4 /* Date+timeAgo.swift in Sources */,
+				DB3F9F4420735410001C03F4 /* MakeTootViewController.swift in Sources */,
+				DB1D9435206E18FB00904759 /* AuthorizeWebViewController.swift in Sources */,
+				DB1D9430206CB8FA00904759 /* MainTabBarController.swift in Sources */,
+				DBC3BBC2207DAEA2005211FC /* Emoji.swift in Sources */,
+				DB1D9437206E291400904759 /* Account.swift in Sources */,
+				DB7162D8205B94100013CC34 /* AppDelegate.swift in Sources */,
+				DB7162DA205B94100013CC34 /* HomeTimelineViewController.swift in Sources */,
+				DBC3BBC0207DAE75005211FC /* NSAttributedString+replaceEmoji.swift in Sources */,
+				DBC3BBC4207DC5FE005211FC /* UIImage+fontAwesomeImage.swift in Sources */,
+				DBC3BBB4207610C1005211FC /* FavouritesTimelineViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7162E6205B94100013CC34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB7162EF205B94100013CC34 /* ochamochiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB7162F1205B94100013CC34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB7162FA205B94100013CC34 /* ochamochiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB7162EC205B94100013CC34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB7162D3205B94100013CC34 /* ochamochi */;
+			targetProxy = DB7162EB205B94100013CC34 /* PBXContainerItemProxy */;
+		};
+		DB7162F7205B94100013CC34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB7162D3205B94100013CC34 /* ochamochi */;
+			targetProxy = DB7162F6205B94100013CC34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DB7162DD205B94100013CC34 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB7162DE205B94100013CC34 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DB7162E2205B94100013CC34 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB7162E3205B94100013CC34 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB7162FC205B94100013CC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB7162FD205B94100013CC34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB7162FF205B94100013CC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7678EDB336A41CF36AEFF13 /* Pods-ochamochi.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4WMM9X273D;
+				INFOPLIST_FILE = ochamochi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.aquarla.ios.ochamochi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB716300205B94100013CC34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21CB9BF26E32A2C3EB5407E5 /* Pods-ochamochi.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4WMM9X273D;
+				INFOPLIST_FILE = ochamochi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.aquarla.ios.ochamochi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DB716302205B94100013CC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF697E68EF4A0524E30D5FE4 /* Pods-ochamochiTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4WMM9X273D;
+				INFOPLIST_FILE = ochamochiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.aquarla.ios.ochamochiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ochamochi.app/ochamochi";
+			};
+			name = Debug;
+		};
+		DB716303205B94100013CC34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88CB997D794286931C1D63A0 /* Pods-ochamochiTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4WMM9X273D;
+				INFOPLIST_FILE = ochamochiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.aquarla.ios.ochamochiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ochamochi.app/ochamochi";
+			};
+			name = Release;
+		};
+		DB716305205B94100013CC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0C12CA1644C88D33AE4C5E8 /* Pods-ochamochiUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4WMM9X273D;
+				INFOPLIST_FILE = ochamochiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.aquarla.ios.ochamochiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ochamochi;
+			};
+			name = Debug;
+		};
+		DB716306205B94100013CC34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A67FEE6FE2B35CFD2531004B /* Pods-ochamochiUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4WMM9X273D;
+				INFOPLIST_FILE = ochamochiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.aquarla.ios.ochamochiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ochamochi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB7162CF205B94100013CC34 /* Build configuration list for PBXProject "ochamochi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB7162FC205B94100013CC34 /* Debug */,
+				DB7162FD205B94100013CC34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB7162FE205B94100013CC34 /* Build configuration list for PBXNativeTarget "ochamochi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB7162FF205B94100013CC34 /* Debug */,
+				DB716300205B94100013CC34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB716301205B94100013CC34 /* Build configuration list for PBXNativeTarget "ochamochiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB716302205B94100013CC34 /* Debug */,
+				DB716303205B94100013CC34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB716304205B94100013CC34 /* Build configuration list for PBXNativeTarget "ochamochiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB716305205B94100013CC34 /* Debug */,
+				DB716306205B94100013CC34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB7162CC205B94100013CC34 /* Project object */;
+}
