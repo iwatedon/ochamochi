@@ -3,6 +3,8 @@ Ofiicial Mastodon client of iwatedon.net ( [https://iwatedon.net/](https://iwate
 
 ochamochi is in alpha state now.
 
+The word "ochamochi" means a local cuisine of Iwate Prefecture, Japan, which is a piece of rice cake with walnut soy sauce.
+
 # What you can do
 
 - Adding an account with OAuth2.
