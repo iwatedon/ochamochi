@@ -48,7 +48,8 @@ class NewInstanceViewController: UIViewController {
                 oauthswift!.client.post(self.appUrl(url),
                                        parameters: ["client_name" : "ochamochi",
                                                     "redirect_uris" : "oauth-swift://oauth-callback/ochamochi",
-                                                    "scopes" : "read write follow"],
+                                                    "scopes" : "read write follow",
+                                                    "website" : "https://github.com/iwatedon/ochamochi"],
                                        success: { response in
                                        self.parseResponseJson(response.string!, url: url)
                 },
