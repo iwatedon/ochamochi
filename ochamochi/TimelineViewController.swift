@@ -16,6 +16,8 @@ class TimelineViewController: UITableViewController, TimelineViewCellDelegate {
     
     var isLoading = false
     
+    // var refreshControl : UIRefreshControl? = nil
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -29,13 +31,13 @@ class TimelineViewController: UITableViewController, TimelineViewCellDelegate {
         self.tableView.register(UINib(nibName: "TimelineViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.tableView.rowHeight = UITableViewAutomaticDimension
     
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(TimelineViewController.onRefresh), for: UIControlEvents.valueChanged)
-        self.tableView.addSubview(refreshControl)
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(TimelineViewController.onRefresh), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(refreshControl!)
     }
     
     func onRefresh(_ sender: UIRefreshControl) {
-        sender.beginRefreshing()
+        refreshControl!.beginRefreshing()
         
         /* var sinceId: String? = nil
         if (toots.count > 0) {
@@ -43,11 +45,11 @@ class TimelineViewController: UITableViewController, TimelineViewCellDelegate {
         }
         loadTimeline(sinceId) */
         
-        clearTimeline()
+        // clearTimeline()
         
         loadTimeline()
         
-        sender.endRefreshing()
+        // sender.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -282,13 +284,17 @@ class TimelineViewController: UITableViewController, TimelineViewCellDelegate {
                             if (maxId != nil) {
                                 self.toots = self.toots + tmp
                             } else {
-                                self.toots = tmp + self.toots
+                                self.toots = tmp // + self.toots
                             }
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
                                 if (maxId != nil) {
                                   self.isLoading = false
+                                } else {
+                                    if (self.refreshControl!.isRefreshing) {
+                                        self.refreshControl!.endRefreshing()
+                                    }
                                 }
                             }
                         } catch {
