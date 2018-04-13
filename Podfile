@@ -10,6 +10,7 @@ target 'ochamochi' do
   pod 'RealmSwift', '3.2.0'
   pod 'DateToolsSwift'
   pod 'Floaty'
+  pod 'TTTAttributedLabel'
 
   target 'ochamochiTests' do
     inherit! :search_paths

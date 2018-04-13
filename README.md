@@ -11,6 +11,7 @@ The word "ochamochi" means a local cuisine of Iwate Prefecture, Japan, which is 
   - Supporting multiple accounts per an instance.
 - Showing your home timeline, local timeline and federated timeline.
   - Supporting custom emojis.
+- Showing account profile and statuses.
 - Showing your favourite toots.
 - Changing accounts.
 - Setting visibility of your toot.
@@ -25,7 +26,6 @@ The word "ochamochi" means a local cuisine of Iwate Prefecture, Japan, which is 
 - CWでのトゥート
 - NSFWでのトゥート
 - トゥートの削除
-- アカウントの詳細表示
 - アカウントのミュート
 - アカウントのブロック
 - アカウントの通報

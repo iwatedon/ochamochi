@@ -54,8 +54,8 @@ class MakeTootViewController: UIViewController {
     
     // load status of reply source
     func loadStatus(_ statusId:  String) {
-        if let currentAccount = Util.getCurrentAccount() {
-            if let currentInstance = Util.getCurrentInstance() {
+        if let currentAccount = MastodonUtil.getCurrentAccount() {
+            if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
                 let _  = oauthswift.client.get(
@@ -134,8 +134,8 @@ class MakeTootViewController: UIViewController {
     
     // Make toot
     @IBAction func toot(_ sender: UIBarButtonItem) {
-        if let currentAccount = Util.getCurrentAccount() {
-            if let currentInstance = Util.getCurrentInstance() {
+        if let currentAccount = MastodonUtil.getCurrentAccount() {
+            if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
                 let _  = oauthswift.client.post(

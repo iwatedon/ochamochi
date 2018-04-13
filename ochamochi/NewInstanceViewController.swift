@@ -26,7 +26,7 @@ class NewInstanceViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // If currentAccount is set. Show MainTabBarController directly.
         if (self.presentingViewController == nil) {
-            if let _ = Util.getCurrentAccount() {
+            if let _ = MastodonUtil.getCurrentAccount() {
                 let controller = UINavigationController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabView"))
                 present(controller, animated: false, completion: nil)
             }
@@ -130,7 +130,7 @@ class NewInstanceViewController: UIViewController {
                                     } else {
                                          currentAccount = accounts[0]
                                     }
-                                    Util.setCurrentAccount(currentAccount!)
+                                    MastodonUtil.setCurrentAccount(currentAccount!)
                                     DispatchQueue.main.async {
                                         self.presentMainTabBarController()
                                     }

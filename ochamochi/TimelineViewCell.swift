@@ -24,7 +24,24 @@ class TimelineViewCell : UITableViewCell {
     var tootId : String? = nil
     var favourited : Bool? = false
     var boosted: Bool? = false
+    
+    var accountId: String? = nil
+    
     var delegate: TimelineViewCellDelegate? = nil
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TimelineViewCell.tappedImageView(_:)))
+        gestureRecognizer.delegate = self
+        avatarImageView?.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func tappedImageView(_ sender: UITapGestureRecognizer) {
+        if (accountId != nil) {
+            delegate?.accountDetail(accountId!)
+        }
+    }
     
     @IBAction func replyButtonTapped(_ sender: UIButton?) {
         if (tootId != nil) {

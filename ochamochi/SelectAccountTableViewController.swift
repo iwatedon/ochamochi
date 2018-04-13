@@ -48,7 +48,7 @@ class SelectAccountTableViewController: UITableViewController {
 
         let account = accounts[indexPath.row]
         cell.textLabel?.text = account.acct
-        if (account.acct == Util.getCurrentAccount()?.acct) {
+        if (account.acct == MastodonUtil.getCurrentAccount()?.acct) {
             cell.accessoryType = .checkmark
         }
 
@@ -57,7 +57,7 @@ class SelectAccountTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let account = accounts[indexPath.row]
-        Util.setCurrentAccount(account)
+        MastodonUtil.setCurrentAccount(account)
         
         // Update TableView
         let navigationController = presentingViewController as! UINavigationController
