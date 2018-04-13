@@ -12,7 +12,6 @@
 		DB1D942E206CB56500904759 /* NewInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D942D206CB56500904759 /* NewInstanceViewController.swift */; };
 		DB1D9430206CB8FA00904759 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D942F206CB8FA00904759 /* MainTabBarController.swift */; };
 		DB1D9433206CC28200904759 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D9432206CC28200904759 /* Instance.swift */; };
-		DB1D9435206E18FB00904759 /* AuthorizeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D9434206E18FB00904759 /* AuthorizeWebViewController.swift */; };
 		DB1D9437206E291400904759 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D9436206E291400904759 /* Account.swift */; };
 		DB1D94392071F90200904759 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D94382071F90200904759 /* Util.swift */; };
 		DB1D943C207206A400904759 /* String+removeHTMLTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D943B207206A400904759 /* String+removeHTMLTag.swift */; };
@@ -41,7 +40,7 @@
 		DBC3BBC0207DAE75005211FC /* NSAttributedString+replaceEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBBF207DAE75005211FC /* NSAttributedString+replaceEmoji.swift */; };
 		DBC3BBC2207DAEA2005211FC /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC1207DAEA2005211FC /* Emoji.swift */; };
 		DBC3BBC4207DC5FE005211FC /* UIImage+fontAwesomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */; };
-		DBC3BBC6207F2790005211FC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC5207F2790005211FC /* WebViewController.swift */; };
+		DBC3BBC6207F2790005211FC /* AuthorizeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC5207F2790005211FC /* AuthorizeWebViewController.swift */; };
 		DBE11FF620749BCD0095AACE /* SelectAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */; };
 		DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF866D12072282200EBF659 /* TimelineViewCell.swift */; };
 		EF2442346AAD017336F283A2 /* Pods_ochamochiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A09B9A16338A371493C4A3 /* Pods_ochamochiTests.framework */; };
@@ -76,7 +75,6 @@
 		DB1D942D206CB56500904759 /* NewInstanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInstanceViewController.swift; sourceTree = "<group>"; };
 		DB1D942F206CB8FA00904759 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DB1D9432206CC28200904759 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
-		DB1D9434206E18FB00904759 /* AuthorizeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeWebViewController.swift; sourceTree = "<group>"; };
 		DB1D9436206E291400904759 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		DB1D94382071F90200904759 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		DB1D943B207206A400904759 /* String+removeHTMLTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+removeHTMLTag.swift"; sourceTree = "<group>"; };
@@ -111,7 +109,7 @@
 		DBC3BBBF207DAE75005211FC /* NSAttributedString+replaceEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+replaceEmoji.swift"; sourceTree = "<group>"; };
 		DBC3BBC1207DAEA2005211FC /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+fontAwesomeImage.swift"; sourceTree = "<group>"; };
-		DBC3BBC5207F2790005211FC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		DBC3BBC5207F2790005211FC /* AuthorizeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeWebViewController.swift; sourceTree = "<group>"; };
 		DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTableViewController.swift; sourceTree = "<group>"; };
 		DBF866D12072282200EBF659 /* TimelineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCell.swift; sourceTree = "<group>"; };
 		E7678EDB336A41CF36AEFF13 /* Pods-ochamochi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ochamochi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ochamochi/Pods-ochamochi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,8 +220,7 @@
 				DB1D9431206CC26400904759 /* Model */,
 				DB7162D7205B94100013CC34 /* AppDelegate.swift */,
 				DB1D942D206CB56500904759 /* NewInstanceViewController.swift */,
-				DB1D9434206E18FB00904759 /* AuthorizeWebViewController.swift */,
-				DBC3BBC5207F2790005211FC /* WebViewController.swift */,
+				DBC3BBC5207F2790005211FC /* AuthorizeWebViewController.swift */,
 				DB1D942F206CB8FA00904759 /* MainTabBarController.swift */,
 				DB1D943F2072139D00904759 /* TimelineViewController.swift */,
 				DB7162D9205B94100013CC34 /* HomeTimelineViewController.swift */,
@@ -580,13 +577,12 @@
 				DB1D943C207206A400904759 /* String+removeHTMLTag.swift in Sources */,
 				DB1D942E206CB56500904759 /* NewInstanceViewController.swift in Sources */,
 				DB1D94402072139D00904759 /* TimelineViewController.swift in Sources */,
-				DBC3BBC6207F2790005211FC /* WebViewController.swift in Sources */,
+				DBC3BBC6207F2790005211FC /* AuthorizeWebViewController.swift in Sources */,
 				DB3F9F48207363A1001C03F4 /* DateFormatter+date.swift in Sources */,
 				DB1D9433206CC28200904759 /* Instance.swift in Sources */,
 				DB1D94422072167800904759 /* FederatedTimelineViewController.swift in Sources */,
 				DB3F9F4620736273001C03F4 /* Date+timeAgo.swift in Sources */,
 				DB3F9F4420735410001C03F4 /* MakeTootViewController.swift in Sources */,
-				DB1D9435206E18FB00904759 /* AuthorizeWebViewController.swift in Sources */,
 				DB1D9430206CB8FA00904759 /* MainTabBarController.swift in Sources */,
 				DBC3BBC2207DAEA2005211FC /* Emoji.swift in Sources */,
 				DB1D9437206E291400904759 /* Account.swift in Sources */,

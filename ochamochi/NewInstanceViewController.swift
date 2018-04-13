@@ -170,7 +170,7 @@ class NewInstanceViewController: UIViewController {
         let accessTokenUrl = self.getAccessTokenUrl(instance)
         oauthswift = OAuth2Swift(consumerKey: instance.clientId, consumerSecret: instance.clientSecret, authorizeUrl: authorizeUrl, accessTokenUrl: accessTokenUrl, responseType: "code")
         //oauthswift?.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift!)
-        oauthswift?.authorizeURLHandler = WebViewController()
+        oauthswift?.authorizeURLHandler = AuthorizeWebViewController()
         
         oauthswift!.authorize(withCallbackURL: "oauth-swift://oauth-callback/ochamochi", scope: "read write follow", state: "OCHAMOCHI",
                              success: { credential, response, parameters in

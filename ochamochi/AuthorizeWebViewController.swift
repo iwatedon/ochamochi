@@ -1,42 +1,61 @@
 //
-//  AuthorizeWebViewController.swift
+//  WebViewController.swift
 //  ochamochi
 //
 //
 
+import OAuthSwift
+
 import UIKit
-import WebKit
+typealias WebView = UIWebView // WKWebView
 
-class AuthorizeWebViewController: UIViewController, WKNavigationDelegate {
+class AuthorizeWebViewController: OAuthWebViewController {
     
-    @IBOutlet var webView : WKWebView?
-    var url: String? = nil
-
+    var targetURL: URL?
+    let webView: WebView = WebView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView!.navigationDelegate = self
-        webView!.translatesAutoresizingMaskIntoConstraints = false
-        webView!.load(URLRequest(url: URL(string: url!)!))
+        // delete all cookie for multi-account support per one instance.
+        let storage = HTTPCookieStorage.shared
+        if let cookies = storage.cookies {
+            for cookie in cookies {
+                storage.deleteCookie(cookie)
+            }
+        }
         
-        // Cookieを削除してログイン状態を解除しておく必要がある
-        WKWebsiteDataStore.default().removeData(ofTypes: [WKWebsiteDataTypeCookies], modifiedSince: Date(timeIntervalSince1970: 0), completionHandler: {})
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.webView.frame = UIScreen.main.bounds
+        self.webView.scalesPageToFit = true
+        self.webView.delegate = self
+        self.view.addSubview(self.webView)
+        loadAddressURL()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func handle(_ url: URL) {
+        targetURL = url
+        super.handle(url)
+        self.loadAddressURL()
     }
-    */
-
+    
+    func loadAddressURL() {
+        guard let url = targetURL else {
+            return
+        }
+        let req = URLRequest(url: url)
+        self.webView.loadRequest(req)
+    }
 }
+
+// MARK: delegate
+extension AuthorizeWebViewController: UIWebViewDelegate {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if let url = request.url, url.scheme == "oauth-swift" {
+            // Call here AppDelegate.sharedInstance.applicationHandleOpenURL(url) if necessary ie. if AppDelegate not configured to handle URL scheme
+            // compare the url with your own custom provided one in `authorizeWithCallbackURL`
+            self.dismissWebViewController()
+        }
+        return true
+    }
+}
+
