@@ -29,9 +29,12 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
     func fav(_ tootId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
             favCommon(tootId, url: favoriteUrl(currentAccount.url, tootId: tootId))
-            toots.forEach { toot in
+            for (index, toot) in toots.enumerated() {
                 if toot.id == tootId {
                     toot.favourited = true
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.none)
+                    }
                 }
             }
         }
@@ -40,9 +43,12 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
     func unfav(_ tootId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
             favCommon(tootId, url: unfavoriteUrl(currentAccount.url, tootId: tootId))
-            toots.forEach { toot in
+            for (index, toot) in toots.enumerated() {
                 if toot.id == tootId {
                     toot.favourited = false
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.none)
+                    }
                 }
             }
         }
@@ -51,9 +57,12 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
     func reblog(_ tootId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
             reblogCommon(tootId, url: reblogUrl(currentAccount.url, tootId: tootId))
-            toots.forEach { toot in
+            for (index, toot) in toots.enumerated() {
                 if toot.id == tootId {
                     toot.reblogged = true
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.none)
+                    }
                 }
             }
         }
@@ -62,9 +71,12 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
     func unreblog(_ tootId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
             reblogCommon(tootId, url: unreblogUrl(currentAccount.url, tootId: tootId))
-            toots.forEach { toot in
+            for (index, toot) in toots.enumerated() {
                 if toot.id == tootId {
                     toot.reblogged = false
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.none)
+                    }
                 }
             }
         }
@@ -83,10 +95,6 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
                             let dataString = response.string
                             let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
                             let status = json as! [String:Any]
-                            
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                            }
                         } catch {
                             print(error)
                         }
