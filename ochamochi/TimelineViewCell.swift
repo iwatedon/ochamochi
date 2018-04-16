@@ -11,7 +11,7 @@ class TimelineViewCell : UITableViewCell {
     @IBOutlet var displayNameLabel: UILabel?
     @IBOutlet var acctLabel: UILabel?
     @IBOutlet var createdAtLabel: UILabel?
-    @IBOutlet var contentLabel: UILabel?
+    @IBOutlet var contentLabel: UITextView?
     @IBOutlet var avatarImageView: UIImageView?
     
     @IBOutlet var boostLabel: UILabel?
@@ -35,6 +35,9 @@ class TimelineViewCell : UITableViewCell {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TimelineViewCell.tappedImageView(_:)))
         gestureRecognizer.delegate = self
         avatarImageView?.addGestureRecognizer(gestureRecognizer)
+        
+        contentLabel?.textContainerInset = UIEdgeInsets.zero
+        contentLabel?.textContainer.lineFragmentPadding = 0
     }
     
     func tappedImageView(_ sender: UITapGestureRecognizer) {

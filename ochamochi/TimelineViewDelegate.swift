@@ -14,7 +14,6 @@ extension TimelineViewDelegate where Self: TimelineViewController {
     func tootTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TimelineViewCell
         
-        cell.contentLabel?.numberOfLines = 0
         cell.selectionStyle = .none
         
         let toot = toots[indexPath.row]
@@ -36,7 +35,6 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         }
         var contentAttributedText = NSMutableAttributedString(string: contentText, attributes:[:])
         cell.contentLabel?.attributedText = contentAttributedText
-        cell.contentLabel?.sizeToFit()
         
         // replace Emojis
         toot.emojis.forEach { emoji in
@@ -51,13 +49,14 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                     attachment.image = image
                     attachment.bounds = CGRect(x: 0, y: 0, width: 20, height: 20)
                     
-                    cell.contentLabel?.attributedText = cell.contentLabel?.attributedText?.replaceEmoji(pattern: ":\(emoji.shortcode!):", replacement: NSAttributedString(attachment: attachment))
-                    cell.contentLabel?.sizeToFit()
+                    cell.contentLabel?.attributedText = cell.contentLabel?.attributedText.replaceEmoji(pattern: ":\(emoji.shortcode!):", replacement: NSAttributedString(attachment: attachment))
                 } else {
                     print(error)
                 }
             }).resume()
         }
+        
+        cell.layoutSubviews()
         
         cell.displayNameLabel?.text = toot.accountDisplayName!
         cell.acctLabel?.text = toot.accountAcct!

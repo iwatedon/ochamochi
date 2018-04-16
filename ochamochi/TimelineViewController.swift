@@ -100,7 +100,6 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
             } else if tableView.contentOffset.y + tableView.frame.size.height > tableView.contentSize.height && tableView.isDragging {
                 isLoading = true
                 print("API呼ばれる")
-                // loadTimeline(nil, maxId: toots.last!.id)
                 loadTimeline(maxId: toots.last!.id!)
             }
         }
