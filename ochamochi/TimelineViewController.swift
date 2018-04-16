@@ -65,7 +65,7 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
     
     func loadTimeline(maxId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
-            MastodonUtil.loadTimeline(nil, maxId: maxId, timelineUrl: self.getTimelineUrl(currentAccount.url), parameters: self.getParameters(since_id: nil, max_id: nil), success: { toots in
+            MastodonUtil.loadTimeline(nil, maxId: maxId, timelineUrl: self.getTimelineUrl(currentAccount.url), parameters: self.getParameters(since_id: nil, max_id: maxId), success: { toots in
                     self.toots = self.toots + toots
                     self.tableView.reloadData()
                     self.isLoading = false
