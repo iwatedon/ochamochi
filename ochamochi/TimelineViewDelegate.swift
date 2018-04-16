@@ -78,9 +78,11 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         if (toot.visibility == "private") {
             cell.boostButton?.setTitle("lock", for: .normal)
             cell.boostButton?.isEnabled = false
+            cell.boostButton?.setTitleColor(UIColor.gray, for: .normal)
         } else if (toot.visibility == "direct") {
             cell.boostButton?.setTitle("envelope", for: .normal)
             cell.boostButton?.isEnabled = false
+            cell.boostButton?.setTitleColor(UIColor.gray, for: .normal)
         } else if let reblogged = toot.reblogged {
             cell.boostButton?.setTitle("retweet", for: .normal)
             cell.boostButton?.isEnabled = true
