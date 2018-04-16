@@ -75,17 +75,17 @@ class MastodonUtil {
                                 var boosted = false
                                 var boost_account_display_name : String? = nil
                                 
+                                let toot = Toot()
+                                toot.id = t["id"] as? String // use original ID regardless whether the toot is boosted one or not.
+
                                 // Boost
                                 if !(t["reblog"] is NSNull) {
                                     boosted = true
                                     boost_account_display_name = (t["account"] as! [String:Any])["display_name"] as? String
                                     
                                     t = t["reblog"] as! [String:Any]
-                                    
                                 }
                                 
-                                let toot = Toot()
-                                toot.id = t["id"] as? String
                                 toot.url = t["url"] as? String
                                 toot.uri = t["uri"] as? String
                                 toot.content = (t["content"] as? String)?.removeHTMLTag()
