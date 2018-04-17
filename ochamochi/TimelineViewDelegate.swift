@@ -60,7 +60,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         cell.layoutSubviews()
         
         cell.displayNameLabel?.text = toot.accountDisplayName!
-        cell.acctLabel?.text = toot.accountAcct!
+        cell.acctLabel?.text = "@" + toot.accountAcct!
         cell.createdAtLabel?.text = toot.createdAt?.shortTimeAgoSinceNow
         
         if (toot.boosted) {
