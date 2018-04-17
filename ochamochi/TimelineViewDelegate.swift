@@ -73,7 +73,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         }
         
         cell.replyButton?.setTitleColor(UIColor.gray, for: .normal)
-        cell.replyButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 16)
+        cell.replyButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 20)
         
         if (toot.visibility == "private") {
             cell.boostButton?.setTitle("lock", for: .normal)
@@ -87,7 +87,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
             cell.boostButton?.setTitle("retweet", for: .normal)
             cell.boostButton?.isEnabled = true
             cell.boosted = reblogged
-            cell.boostButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 16)
+            cell.boostButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 20)
             if (reblogged) {
                 cell.boostButton?.setTitleColor(UIColor.buttonDefault, for: .normal)
             } else {
@@ -98,15 +98,15 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         if let favourited = toot.favourited {
             cell.favourited = favourited
             if (favourited) {
-                cell.favButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 16)
+                cell.favButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 20)
                 cell.favButton?.setTitleColor(UIColor.buttonDefault, for: .normal)
             } else {
-                cell.favButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeRegular", size: 16)
+                cell.favButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeRegular", size: 20)
                 cell.favButton?.setTitleColor(UIColor.gray, for: .normal)
             }
         }
         
-        cell.deleteButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 16)
+        cell.deleteButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 20)
         cell.deleteButton?.setTitleColor(UIColor.gray, for: .normal)
         cell.deleteButton?.isHidden = (MastodonUtil.normalizeAcct(toot.accountAcct!) != MastodonUtil.getCurrentAccount()?.acct)
         
