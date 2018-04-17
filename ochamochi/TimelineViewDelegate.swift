@@ -21,6 +21,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         cell.delegate = self
         cell.tootId = toot.id
         cell.accountId = toot.accountId
+        cell.accountAcct = toot.accountAcct
         
         var contentText : String = ""
         if let spoiler_text = toot.spoilerText {
@@ -100,10 +101,14 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                 cell.favButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 16)
                 cell.favButton?.setTitleColor(UIColor.buttonDefault, for: .normal)
             } else {
-                cell.favButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeRegular", size: 12)
+                cell.favButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeRegular", size: 16)
                 cell.favButton?.setTitleColor(UIColor.gray, for: .normal)
             }
         }
+        
+        cell.deleteButton?.titleLabel?.font = UIFont(name: "FontAwesome5FreeSolid", size: 16)
+        cell.deleteButton?.setTitleColor(UIColor.gray, for: .normal)
+        cell.deleteButton?.isHidden = (MastodonUtil.normalizeAcct(toot.accountAcct!) != MastodonUtil.getCurrentAccount()?.acct)
         
         // read avatar image
         DispatchQueue.global().async {

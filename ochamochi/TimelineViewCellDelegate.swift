@@ -14,6 +14,7 @@ protocol TimelineViewCellDelegate {
     func unfav(_ tootId: String)
     func reblog(_ tootId: String)
     func unreblog(_ tootId: String)
+    func confirmDelete(_ tootId: String)
     
     func accountDetail(_ accountId: String)
 }
@@ -119,10 +120,6 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
                             let dataString = response.string
                             let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
                             let status = json as! [String:Any]
-                            
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                            }
                         } catch {
                             print(error)
                         }
@@ -141,6 +138,51 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
         }
     }
     
+    func delete(_ tootId: String) {
+        confirmDelete(tootId)
+        // deleteImpl(tootId)
+    }
+    
+    func confirmDelete(_ tootId: String) {
+        let alert: UIAlertController = UIAlertController(title: "Delete toot", message: "Do you really want to delete toot?", preferredStyle:  UIAlertControllerStyle.alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.deleteImpl(tootId)
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteImpl(_ tootId: String) {
+        if let currentAccount = MastodonUtil.getCurrentAccount() {
+            if let currentInstance = MastodonUtil.getCurrentInstance() {
+                let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
+                oauthswift.client.credential.oauthToken = currentAccount.accessToken
+                let _  = oauthswift.client.delete(
+                    self.deleteTootUrl(currentAccount.url, tootId: tootId),
+                    success: { response in
+                        for (index, toot) in self.toots.enumerated() {
+                            if toot.id == tootId {
+                                self.toots.remove(at: index)
+                                break
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                },
+                    failure: { error in
+                        print(error)
+                })
+            }
+        }
+    }
+    
     private func favoriteUrl(_ url : String, tootId : String) -> String {
         return "https://\(url)/api/v1/statuses/\(tootId)/favourite".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
     }
@@ -155,5 +197,9 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
     
     private func unreblogUrl(_ url : String, tootId: String) -> String {
         return "https://\(url)/api/v1/statuses/\(tootId)/unreblog".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+    }
+    
+    private func deleteTootUrl(_ url: String, tootId: String) -> String {
+        return "https://\(url)/api/v1/statuses/\(tootId)".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
     }
 }

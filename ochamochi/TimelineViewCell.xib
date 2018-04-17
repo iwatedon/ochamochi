@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hogehoge@hogehoge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPQ-ZV-vi3">
-                        <rect key="frame" x="149.5" y="25" width="125" height="14.5"/>
+                        <rect key="frame" x="149.5" y="25.5" width="125" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Hrh-mc-Uex"/>
                         </constraints>
@@ -43,13 +43,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="ほげほげ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7L-7l-3tV">
-                        <rect key="frame" x="90" y="25" width="49.5" height="14.5"/>
+                        <rect key="frame" x="90" y="25.5" width="49.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="XXXXXXXX" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6C-uc-LCf">
-                        <rect key="frame" x="426.5" y="25" width="65.5" height="14.5"/>
+                        <rect key="frame" x="426.5" y="25.5" width="65.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="kfT-tL-bUi"/>
                         </constraints>
@@ -66,8 +66,16 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NwF-1L-MCK">
+                        <rect key="frame" x="90" y="92" width="30" height="29"/>
+                        <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
+                        <state key="normal" title="reply"/>
+                        <connections>
+                            <action selector="replyButtonTapped:" destination="scP-Oc-Ra3" eventType="touchUpInside" id="TTn-B6-cAC"/>
+                        </connections>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLy-wI-6Oe">
-                        <rect key="frame" x="135" y="92.5" width="30" height="29"/>
+                        <rect key="frame" x="135" y="92" width="30" height="29"/>
                         <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
                         <state key="normal" title="retweet"/>
                         <connections>
@@ -75,23 +83,23 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVl-Vl-o1S">
-                        <rect key="frame" x="180" y="92.5" width="30" height="29"/>
+                        <rect key="frame" x="180" y="91.5" width="30" height="30"/>
                         <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="14"/>
                         <state key="normal" title="star"/>
                         <connections>
                             <action selector="favButtonTapped:" destination="scP-Oc-Ra3" eventType="touchUpInside" id="THS-xX-tay"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NwF-1L-MCK">
-                        <rect key="frame" x="90" y="92.5" width="30" height="29"/>
-                        <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
-                        <state key="normal" title="reply"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I33-GO-rbc">
+                        <rect key="frame" x="225" y="92" width="30" height="29.5"/>
+                        <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="14"/>
+                        <state key="normal" title="trash-alt"/>
                         <connections>
-                            <action selector="replyButtonTapped:" destination="scP-Oc-Ra3" eventType="touchUpInside" id="TTn-B6-cAC"/>
+                            <action selector="deleteButtonTapped:" destination="scP-Oc-Ra3" eventType="touchUpInside" id="qDG-PM-5Sb"/>
                         </connections>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Toot" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iEQ-Aq-rcR">
-                        <rect key="frame" x="90" y="50" width="403" height="33"/>
+                        <rect key="frame" x="90" y="50.5" width="403" height="31.5"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="8xY-Np-9nW"/>
                         </constraints>
@@ -104,11 +112,14 @@
                     <constraint firstItem="iEQ-Aq-rcR" firstAttribute="top" secondItem="oPQ-ZV-vi3" secondAttribute="bottom" constant="10" id="CMY-aT-N5J"/>
                     <constraint firstItem="NQN-h2-hBV" firstAttribute="leading" secondItem="Cev-Fc-nfF" secondAttribute="leading" constant="15" id="EQy-Ga-9fz"/>
                     <constraint firstItem="r6C-uc-LCf" firstAttribute="leadingMargin" relation="greaterThanOrEqual" secondItem="oPQ-ZV-vi3" secondAttribute="trailing" constant="15" id="GSN-vf-Ggi"/>
+                    <constraint firstItem="I33-GO-rbc" firstAttribute="top" secondItem="iEQ-Aq-rcR" secondAttribute="bottom" constant="10" id="HTI-El-fiW"/>
                     <constraint firstItem="NQN-h2-hBV" firstAttribute="top" secondItem="Cev-Fc-nfF" secondAttribute="top" constant="15" id="K30-HG-I7V"/>
                     <constraint firstItem="OO4-ND-Sha" firstAttribute="top" secondItem="Cev-Fc-nfF" secondAttribute="topMargin" id="LWJ-l4-a8v"/>
                     <constraint firstItem="iEQ-Aq-rcR" firstAttribute="leading" secondItem="NQN-h2-hBV" secondAttribute="trailing" constant="15" id="O9I-c1-BJx"/>
+                    <constraint firstItem="I33-GO-rbc" firstAttribute="leading" secondItem="vVl-Vl-o1S" secondAttribute="trailing" constant="15" id="RmV-pP-vAU"/>
                     <constraint firstItem="r6C-uc-LCf" firstAttribute="top" secondItem="OO4-ND-Sha" secondAttribute="bottomMargin" constant="7.75" id="Wpb-Ds-Zb1"/>
                     <constraint firstItem="vVl-Vl-o1S" firstAttribute="top" secondItem="iEQ-Aq-rcR" secondAttribute="bottom" constant="10" id="aCD-oH-NcY"/>
+                    <constraint firstAttribute="bottom" secondItem="I33-GO-rbc" secondAttribute="bottom" id="aqV-ie-1EQ"/>
                     <constraint firstAttribute="trailing" secondItem="r6C-uc-LCf" secondAttribute="trailing" constant="16" id="bMi-rW-amh"/>
                     <constraint firstAttribute="bottom" secondItem="NwF-1L-MCK" secondAttribute="bottom" id="cfN-eT-OIg"/>
                     <constraint firstAttribute="bottom" secondItem="vVl-Vl-o1S" secondAttribute="bottom" id="fcq-6d-cCC"/>
@@ -135,6 +146,7 @@
                 <outlet property="boostLabelHeight" destination="zcG-RX-dZ4" id="PAQ-Wn-eve"/>
                 <outlet property="contentLabel" destination="iEQ-Aq-rcR" id="4R4-aY-hnz"/>
                 <outlet property="createdAtLabel" destination="r6C-uc-LCf" id="Ef2-ER-uE5"/>
+                <outlet property="deleteButton" destination="I33-GO-rbc" id="DbZ-qk-bku"/>
                 <outlet property="displayNameLabel" destination="v7L-7l-3tV" id="i0S-6o-P6w"/>
                 <outlet property="favButton" destination="vVl-Vl-o1S" id="wWb-vp-71o"/>
                 <outlet property="replyButton" destination="NwF-1L-MCK" id="gTL-Ib-OEf"/>

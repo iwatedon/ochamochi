@@ -20,12 +20,14 @@ class TimelineViewCell : UITableViewCell {
     @IBOutlet var replyButton: UIButton?
     @IBOutlet var boostButton: UIButton?
     @IBOutlet var favButton: UIButton?
+    @IBOutlet var deleteButton: UIButton?
     
     var tootId : String? = nil
     var favourited : Bool? = false
     var boosted: Bool? = false
     
     var accountId: String? = nil
+    var accountAcct: String? = nil
     
     var delegate: TimelineViewCellDelegate? = nil
     
@@ -67,4 +69,13 @@ class TimelineViewCell : UITableViewCell {
             delegate?.reblog(self.tootId!)
         }
     }
+    
+    @IBAction func deleteButtonTapped(_ sender: UIButton?) {
+        if let currentAccount = MastodonUtil.getCurrentAccount() {
+            if (MastodonUtil.normalizeAcct(accountAcct!) == currentAccount.acct) {
+                delegate?.confirmDelete(self.tootId!)
+            }
+        }
+    }
+        
 }

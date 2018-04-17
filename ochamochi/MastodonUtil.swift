@@ -137,4 +137,12 @@ class MastodonUtil {
         }
         return
     }
+    
+    static func normalizeAcct(_ acct: String) -> String {
+        if (acct.contains("@")) {
+            return acct
+        } else {
+            return acct + "@" + MastodonUtil.getCurrentInstance()!.url
+        }
+    }
 }
