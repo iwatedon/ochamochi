@@ -18,7 +18,7 @@ The word "ochamochi" means a local cuisine of Iwate Prefecture, Japan, which is 
 - Boosting / Unboosting toots.
 - Replying to toots.
 - Deleting your toots.
-- Adding / Remove favourite to toots.
+- Adding (Removing) toots to (from) your favourite.
 
 # TODO
 
