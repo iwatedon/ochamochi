@@ -6,9 +6,8 @@
 
 import UIKit
 import OAuthSwift
-import TTTAttributedLabel
 
-class AccountTimelineViewController: TimelineViewController, TTTAttributedLabelDelegate {
+class AccountTimelineViewController: TimelineViewController {
     @IBOutlet var avatarImageView: UIImageView?
     @IBOutlet var displayNameLabel: UILabel?
     @IBOutlet var acctLabel: UILabel?
@@ -41,10 +40,6 @@ class AccountTimelineViewController: TimelineViewController, TTTAttributedLabelD
             result["max_id"] = max_id! as Any
         }
         return result
-    }
-    
-    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
-        UIApplication.shared.open(url, options: [:], completionHandler:nil)
     }
     
     private func accountUrl(_ url: String, accountId: String) -> String {
