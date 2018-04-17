@@ -12,7 +12,7 @@ class AccountTimelineViewController: TimelineViewController, TTTAttributedLabelD
     @IBOutlet var avatarImageView: UIImageView?
     @IBOutlet var displayNameLabel: UILabel?
     @IBOutlet var acctLabel: UILabel?
-    @IBOutlet var noteLabel: TTTAttributedLabel?
+    @IBOutlet var noteTextView: UITextView?
     
     @IBOutlet var headerView : UIView?
     
@@ -20,9 +20,6 @@ class AccountTimelineViewController: TimelineViewController, TTTAttributedLabelD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        noteLabel?.delegate = self
-        noteLabel?.enabledTextCheckingTypes = NSTextCheckingResult.CheckingType.link.rawValue
         
         loadAccount()
     }
@@ -75,8 +72,7 @@ class AccountTimelineViewController: TimelineViewController, TTTAttributedLabelD
                             self.displayNameLabel?.text = accountDisplayName
                             self.acctLabel?.text = "@\(accountAcct!)"
                             
-                            self.noteLabel?.text = accountNote?.removeHTMLTag()
-                            self.noteLabel?.sizeToFit()
+                            self.noteTextView?.text = accountNote?.removeHTMLTag()
                             
                             // resize headerView according to auto-layout.
                             self.headerView?.setNeedsLayout()
