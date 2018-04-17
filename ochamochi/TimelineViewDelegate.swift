@@ -22,6 +22,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         cell.tootId = toot.id
         cell.accountId = toot.accountId
         cell.accountAcct = toot.accountAcct
+        cell.mentions = toot.mentions
         
         var contentText : String = ""
         if let spoiler_text = toot.spoilerText {

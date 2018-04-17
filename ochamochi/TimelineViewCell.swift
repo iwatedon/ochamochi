@@ -6,8 +6,9 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
-class TimelineViewCell : UITableViewCell {
+class TimelineViewCell : UITableViewCell, UITextViewDelegate {
     @IBOutlet var displayNameLabel: UILabel?
     @IBOutlet var acctLabel: UILabel?
     @IBOutlet var createdAtLabel: UILabel?
@@ -29,6 +30,8 @@ class TimelineViewCell : UITableViewCell {
     var accountId: String? = nil
     var accountAcct: String? = nil
     
+    var mentions: [Mention] = []
+    
     var delegate: TimelineViewCellDelegate? = nil
     
     override func awakeFromNib() {
@@ -40,6 +43,7 @@ class TimelineViewCell : UITableViewCell {
         
         contentLabel?.textContainerInset = UIEdgeInsets.zero
         contentLabel?.textContainer.lineFragmentPadding = 0
+        contentLabel?.delegate = self
     }
     
     func tappedImageView(_ sender: UITapGestureRecognizer) {
@@ -77,5 +81,24 @@ class TimelineViewCell : UITableViewCell {
             }
         }
     }
-        
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        return interactURL(URL: URL)
+    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        return interactURL(URL: URL)
+    }
+    
+    private func interactURL(URL: URL) -> Bool{
+        if (URL.scheme == "mailto") {
+            let acct = String(URL.absoluteString.split(separator: ":")[1])
+            self.mentions.forEach { mention in
+                if (MastodonUtil.normalizeAcct(mention.acct!) == acct) {
+                    delegate?.accountDetail(mention.id!)
+                }
+            }
+        }
+        return true
+    }
 }

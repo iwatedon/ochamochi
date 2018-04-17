@@ -120,6 +120,19 @@ class MastodonUtil {
                                     }
                                 }
                                 
+                                if let _ = t["mentions"] {
+                                    let mentions = t["mentions"] as! [Any]
+                                    mentions.forEach { _mention in
+                                        let tmp = _mention as! [String:Any]
+                                        let mention = Mention()
+                                        mention.url = tmp["url"] as! String
+                                        mention.username = tmp["username"] as! String
+                                        mention.acct = tmp["acct"] as! String
+                                        mention.id = tmp["id"] as! String
+                                        toot.mentions.append(mention)
+                                    }
+                                }
+                                
                                 toots.append(toot)
                             }
                             

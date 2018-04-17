@@ -31,6 +31,7 @@
 		DB7162E4205B94100013CC34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB7162E2205B94100013CC34 /* LaunchScreen.storyboard */; };
 		DB7162EF205B94100013CC34 /* ochamochiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162EE205B94100013CC34 /* ochamochiTests.swift */; };
 		DB7162FA205B94100013CC34 /* ochamochiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162F9205B94100013CC34 /* ochamochiUITests.swift */; };
+		DB82A5192085DAA1005FA4FD /* Mention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82A5182085DAA1005FA4FD /* Mention.swift */; };
 		DBC3BBB4207610C1005211FC /* FavouritesTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBB3207610C1005211FC /* FavouritesTimelineViewController.swift */; };
 		DBC3BBB6207C8243005211FC /* TimelineViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */; };
 		DBC3BBBA207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */; };
@@ -102,6 +103,7 @@
 		DB7162F5205B94100013CC34 /* ochamochiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ochamochiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7162F9205B94100013CC34 /* ochamochiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ochamochiUITests.swift; sourceTree = "<group>"; };
 		DB7162FB205B94100013CC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB82A5182085DAA1005FA4FD /* Mention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mention.swift; sourceTree = "<group>"; };
 		DBC3BBB3207610C1005211FC /* FavouritesTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTimelineViewController.swift; sourceTree = "<group>"; };
 		DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCellDelegate.swift; sourceTree = "<group>"; };
 		DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				DB1D9436206E291400904759 /* Account.swift */,
 				DB1D943D20720CFA00904759 /* Toot.swift */,
 				DBC3BBC1207DAEA2005211FC /* Emoji.swift */,
+				DB82A5182085DAA1005FA4FD /* Mention.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				DBC3BBC2207DAEA2005211FC /* Emoji.swift in Sources */,
 				DB1D9437206E291400904759 /* Account.swift in Sources */,
 				DB7162D8205B94100013CC34 /* AppDelegate.swift in Sources */,
+				DB82A5192085DAA1005FA4FD /* Mention.swift in Sources */,
 				DB7162DA205B94100013CC34 /* HomeTimelineViewController.swift in Sources */,
 				DBC3BBC0207DAE75005211FC /* NSAttributedString+replaceEmoji.swift in Sources */,
 				DBF5319720847C0E00629671 /* AccountTimelineViewController.swift in Sources */,

@@ -27,6 +27,7 @@ class Toot {
     var reblogged: Bool? = nil // reblogged by me
     
     var emojis: [Emoji] = []
+    var mentions: [Mention] = []
     
     var visibility: String? = nil
 }
