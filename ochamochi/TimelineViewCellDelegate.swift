@@ -28,6 +28,58 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
     }
     
     func fav(_ tootId: String) {
+        confirmFav(tootId)
+        // favImpl(tootId)
+    }
+    
+    func unfav(_ tootId: String) {
+        confirmUnfav(tootId)
+        // unfavImpl(tootId)
+    }
+    
+    func reblog(_ tootId: String) {
+        confirmReblog(tootId)
+        // reblogImpl(tootId)
+    }
+    
+    func unreblog(_ tootId: String) {
+        confirmUnreblog(tootId)
+        // unreblogImpl(tootId)
+    }
+    
+    func confirmFav(_ tootId: String) {
+        confirm(title: "Favorite",
+                message: "Do you want to favorite toot?",
+                defaultAction: {
+                    self.favImpl(tootId)
+                })
+    }
+    
+    func confirmUnfav(_ tootId: String) {
+        confirm(title: "Unfavorite",
+                message: "Do you want to unfavorite toot?",
+                defaultAction: {
+                    self.unfavImpl(tootId)
+        })
+    }
+    
+    func confirmReblog(_ tootId: String) {
+        confirm(title: "Boost",
+                message: "Do you want to boost toot?",
+                defaultAction: {
+                    self.reblogImpl(tootId)
+        })
+    }
+    
+    func confirmUnreblog(_ tootId: String) {
+        confirm(title: "Unboost",
+                message: "Do you want to unboost toot?",
+                defaultAction: {
+                    self.unreblogImpl(tootId)
+        })
+    }
+    
+    func favImpl(_ tootId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
             favCommon(tootId, url: favoriteUrl(currentAccount.url, tootId: tootId))
             for (index, toot) in toots.enumerated() {
@@ -41,7 +93,7 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
         }
     }
     
-    func unfav(_ tootId: String) {
+    func unfavImpl(_ tootId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
             favCommon(tootId, url: unfavoriteUrl(currentAccount.url, tootId: tootId))
             for (index, toot) in toots.enumerated() {
@@ -55,7 +107,7 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
         }
     }
     
-    func reblog(_ tootId: String) {
+    func reblogImpl(_ tootId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
             reblogCommon(tootId, url: reblogUrl(currentAccount.url, tootId: tootId))
             for (index, toot) in toots.enumerated() {
@@ -69,7 +121,7 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
         }
     }
     
-    func unreblog(_ tootId: String) {
+    func unreblogImpl(_ tootId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
             reblogCommon(tootId, url: unreblogUrl(currentAccount.url, tootId: tootId))
             for (index, toot) in toots.enumerated() {
@@ -181,6 +233,21 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
                 })
             }
         }
+    }
+    
+    private func confirm(title: String, message: String, defaultAction: @escaping (() -> Void)) {
+        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            defaultAction()
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     private func favoriteUrl(_ url : String, tootId : String) -> String {
