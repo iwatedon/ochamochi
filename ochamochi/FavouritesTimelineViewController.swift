@@ -12,6 +12,7 @@ class FavouritesTimelineViewController: TimelineViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        useWebLinking = true
     }
     
     override func getTabBarIconName() -> String {

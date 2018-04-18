@@ -16,6 +16,10 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
     
     var isLoading = false
     
+    var useWebLinking = false
+    
+    var currentMaxId: String? = nil
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -51,25 +55,28 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
         }
     }
     
+    // return max_id
     func loadTimeline() {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
-            MastodonUtil.loadTimeline(nil, maxId: nil, timelineUrl: self.getTimelineUrl(currentAccount.url), parameters: self.getParameters(since_id: nil, max_id: nil), success: { toots in
+            MastodonUtil.loadTimeline(nil, maxId: nil, timelineUrl: self.getTimelineUrl(currentAccount.url), parameters: self.getParameters(since_id: nil, max_id: nil), success: { toots, maxId in
                 self.toots = toots
+                self.currentMaxId = maxId
                 self.tableView.reloadData()
                 if (self.refreshControl!.isRefreshing) {
                     self.refreshControl!.endRefreshing()
                 }
-            })
+            }, useWebLinking: useWebLinking)
         }
     }
     
     func loadTimeline(maxId: String) {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
-            MastodonUtil.loadTimeline(nil, maxId: maxId, timelineUrl: self.getTimelineUrl(currentAccount.url), parameters: self.getParameters(since_id: nil, max_id: maxId), success: { toots in
+            MastodonUtil.loadTimeline(nil, maxId: maxId, timelineUrl: self.getTimelineUrl(currentAccount.url), parameters: self.getParameters(since_id: nil, max_id: maxId), success: { toots, _maxId in
                     self.toots = self.toots + toots
+                    self.currentMaxId = _maxId
                     self.tableView.reloadData()
                     self.isLoading = false
-            })
+            }, useWebLinking: useWebLinking)
         }
     }
     
@@ -100,7 +107,7 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
             } else if tableView.contentOffset.y + tableView.frame.size.height > tableView.contentSize.height && tableView.isDragging {
                 isLoading = true
                 print("API呼ばれる")
-                loadTimeline(maxId: toots.last!.id!)
+                loadTimeline(maxId: currentMaxId!)
             }
         }
     }

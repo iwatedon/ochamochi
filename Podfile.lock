@@ -7,12 +7,14 @@ PODS:
   - Realm/Headers (3.2.0)
   - RealmSwift (3.2.0):
     - Realm (= 3.2.0)
+  - WebLinking (2.0.0)
 
 DEPENDENCIES:
   - DateToolsSwift
   - Floaty
   - OAuthSwift (= 1.1.2)
   - RealmSwift (= 3.2.0)
+  - WebLinking
 
 SPEC CHECKSUMS:
   DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
@@ -20,7 +22,8 @@ SPEC CHECKSUMS:
   OAuthSwift: 5aa5659984d3ca3206ba636a9e7a9c6626b2e8bd
   Realm: ae552b9b9eca3a12374a589fa842f220e286a80a
   RealmSwift: 05727129547dcab3fe828bd87bc30be903736b9c
+  WebLinking: b476999d59f78bd6649e6754d60693a7d147b00c
 
-PODFILE CHECKSUM: f947f067caf418d6ecd73085ce5e739c81e3ba8b
+PODFILE CHECKSUM: 4b9121274a3d40dc054f55294acb0007ee0edc90
 
 COCOAPODS: 1.4.0

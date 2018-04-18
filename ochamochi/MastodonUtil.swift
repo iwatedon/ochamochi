@@ -7,6 +7,7 @@
 import Foundation
 import RealmSwift
 import OAuthSwift
+import WebLinking
 
 class MastodonUtil {
     static let CURRENT_ACCOUNT_KEY = "currentAccount"
@@ -49,8 +50,7 @@ class MastodonUtil {
         }
     }
     
-    
-    static func loadTimeline(_ sinceId : String? = nil, maxId : String? = nil, timelineUrl: String = "", parameters: OAuthSwift.Parameters = [:],  success : @escaping (([Toot]) -> Void) = {toots in}) {
+    static func loadTimeline(_ sinceId : String? = nil, maxId : String? = nil, timelineUrl: String = "", parameters: OAuthSwift.Parameters = [:],  success : @escaping (([Toot], String?) -> Void) = {toots, maxId in}, useWebLinking: Bool = false) {
         if (sinceId != nil && maxId != nil) {
             print("error: since_id and max_id are both not nil.")
             return
@@ -136,8 +136,17 @@ class MastodonUtil {
                                 toots.append(toot)
                             }
                             
+                            var maxId : String? = nil
+                            if (useWebLinking) {
+                                if let link = response.response.findLink(relation: "next") {
+                                    maxId = String(link.uri.split(separator: "?")[1].split(separator: "=")[1])
+                                }
+                            } else if (toots.count > 0) {
+                                maxId = toots.last?.id
+                            }
+                            
                             DispatchQueue.main.async {
-                                success(toots)
+                                success(toots, maxId)
                             }
                         } catch {
                             print(error)
