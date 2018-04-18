@@ -28,6 +28,7 @@ class Toot {
     
     var emojis: [Emoji] = []
     var mentions: [Mention] = []
+    var attachments: [Attachment] = []
     
     var visibility: String? = nil
 }

@@ -15,6 +15,22 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
     @IBOutlet var contentLabel: UITextView?
     @IBOutlet var avatarImageView: UIImageView?
     
+    @IBOutlet var attachmentImageView1: UIImageView?
+    @IBOutlet var attachmentImageViewHeight1: NSLayoutConstraint?
+    @IBOutlet var attachmentImageViewTopSpace1: NSLayoutConstraint?
+    
+    @IBOutlet var attachmentImageView2: UIImageView?
+    @IBOutlet var attachmentImageViewHeight2: NSLayoutConstraint?
+    @IBOutlet var attachmentImageViewTopSpace2: NSLayoutConstraint?
+    
+    @IBOutlet var attachmentImageView3: UIImageView?
+    @IBOutlet var attachmentImageViewHeight3: NSLayoutConstraint?
+    @IBOutlet var attachmentImageViewTopSpace3: NSLayoutConstraint?
+    
+    @IBOutlet var attachmentImageView4: UIImageView?
+    @IBOutlet var attachmentImageViewHeight4: NSLayoutConstraint?
+    @IBOutlet var attachmentImageViewTopSpace4: NSLayoutConstraint?
+    
     @IBOutlet var boostLabel: UILabel?
     @IBOutlet var boostLabelHeight : NSLayoutConstraint?
     
@@ -31,6 +47,7 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
     var accountAcct: String? = nil
     
     var mentions: [Mention] = []
+    var attachments: [Attachment] = []
     
     var delegate: TimelineViewCellDelegate? = nil
     
@@ -40,6 +57,20 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TimelineViewCell.tappedImageView(_:)))
         gestureRecognizer.delegate = self
         avatarImageView?.addGestureRecognizer(gestureRecognizer)
+        
+        let gestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(TimelineViewCell.attachmentImageView1Tapped(_:)))
+        gestureRecognizer1.delegate = self
+        attachmentImageView1?.addGestureRecognizer(gestureRecognizer1)
+        let gestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(TimelineViewCell.attachmentImageView2Tapped(_:)))
+        gestureRecognizer2.delegate = self
+        attachmentImageView2?.addGestureRecognizer(gestureRecognizer2)
+        let gestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(TimelineViewCell.attachmentImageView3Tapped(_:)))
+        gestureRecognizer3.delegate = self
+        attachmentImageView3?.addGestureRecognizer(gestureRecognizer3)
+        let gestureRecognizer4 = UITapGestureRecognizer(target: self, action: #selector(TimelineViewCell.attachmentImageView4Tapped(_:)))
+        gestureRecognizer4.delegate = self
+        attachmentImageView4?.addGestureRecognizer(gestureRecognizer4)
+        
         
         contentLabel?.textContainerInset = UIEdgeInsets.zero
         contentLabel?.textContainer.lineFragmentPadding = 0
@@ -80,6 +111,27 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
                 delegate?.confirmDelete(self.tootId!)
             }
         }
+    }
+    
+    @IBAction func attachmentImageView1Tapped(_ sender: UIImageView?) {
+        attachmentImageViewTapped(sender, index: 0)
+    }
+    
+    @IBAction func attachmentImageView2Tapped(_ sender: UIImageView?) {
+        attachmentImageViewTapped(sender, index: 1)
+    }
+    
+    @IBAction func attachmentImageView3Tapped(_ sender: UIImageView?) {
+        attachmentImageViewTapped(sender, index: 2)
+    }
+    
+    @IBAction func attachmentImageView4Tapped(_ sender: UIImageView?) {
+        attachmentImageViewTapped(sender, index: 3)
+    }
+    
+    private func attachmentImageViewTapped(_ sender: UIImageView?, index: Int) {
+        let attachment = attachments[index]
+        delegate?.attachmentDetail(attachment)
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {

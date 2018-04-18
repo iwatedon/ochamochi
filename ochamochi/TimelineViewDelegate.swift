@@ -23,6 +23,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         cell.accountId = toot.accountId
         cell.accountAcct = toot.accountAcct
         cell.mentions = toot.mentions
+        cell.attachments = toot.attachments
         
         var contentText : String = ""
         if let spoiler_text = toot.spoilerText {
@@ -58,11 +59,64 @@ extension TimelineViewDelegate where Self: TimelineViewController {
             }).resume()
         }
         
-        cell.layoutSubviews()
-        
         cell.displayNameLabel?.text = toot.accountDisplayName!
         cell.acctLabel?.text = "@" + toot.accountAcct!
         cell.createdAtLabel?.text = toot.createdAt?.shortTimeAgoSinceNow
+        
+        // load media
+        cell.attachmentImageViewHeight1?.constant = 0
+        cell.attachmentImageViewHeight2?.constant = 0
+        cell.attachmentImageViewHeight3?.constant = 0
+        cell.attachmentImageViewHeight4?.constant = 0
+        
+        cell.attachmentImageViewTopSpace1?.constant = 0
+        cell.attachmentImageViewTopSpace2?.constant = 0
+        cell.attachmentImageViewTopSpace3?.constant = 0
+        cell.attachmentImageViewTopSpace4?.constant = 0
+        
+        cell.attachmentImageView1?.isHidden = true
+        cell.attachmentImageView2?.isHidden = true
+        cell.attachmentImageView3?.isHidden = true
+        cell.attachmentImageView4?.isHidden = true
+        
+        if (toot.attachments.count > 0) {
+            cell.attachmentImageViewHeight1?.constant = 100
+            cell.attachmentImageViewTopSpace1?.constant = 10
+            cell.attachmentImageView1?.isHidden = false
+            
+            // load attachment1
+            self.loadAttachmentPreview(url: toot.attachments[0].previewUrl!, imageView: cell.attachmentImageView1!, cell: cell)
+            
+            if (toot.attachments.count > 1) {
+                cell.attachmentImageViewHeight2?.constant = 100
+                cell.attachmentImageViewTopSpace2?.constant = 10
+                cell.attachmentImageView2?.isHidden = false
+                
+                // load attachment2
+                self.loadAttachmentPreview(url: toot.attachments[1].previewUrl!, imageView: cell.attachmentImageView2!, cell: cell)
+                
+                if (toot.attachments.count > 2) {
+                    cell.attachmentImageViewHeight3?.constant = 100
+                    cell.attachmentImageViewTopSpace3?.constant = 10
+                    cell.attachmentImageView3?.isHidden = false
+                    
+                    // load attachment3
+                    self.loadAttachmentPreview(url: toot.attachments[2].previewUrl!, imageView: cell.attachmentImageView3!, cell: cell)
+                    
+                    if (toot.attachments.count > 3) {
+                        cell.attachmentImageViewHeight4?.constant = 100
+                        cell.attachmentImageViewTopSpace4?.constant = 10
+                        cell.attachmentImageView4?.isHidden = false
+                        
+                        // load attachment4
+                        self.loadAttachmentPreview(url: toot.attachments[3].previewUrl!, imageView: cell.attachmentImageView4!, cell: cell)
+                        
+                    }
+                    
+                }
+                
+            }
+        }
         
         if (toot.boosted) {
             cell.boostLabel?.isHidden = false
@@ -120,7 +174,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                     if (err == nil) {
                         DispatchQueue.main.async {
                             cell.avatarImageView!.image = UIImage(data: data!)?.resize(size: CGSize(width:60, height:60))
-                            cell.layoutSubviews()
+                            // cell.layoutSubviews()
                         }
                     }
                 }
@@ -128,6 +182,27 @@ extension TimelineViewDelegate where Self: TimelineViewController {
             }
         }
         
+        cell.layoutSubviews()
+        
         return cell
+    }
+    
+    // load attachment preview image
+    private func loadAttachmentPreview(url: String, imageView: UIImageView, cell: UITableViewCell) {
+        DispatchQueue.global().async {
+            if let imageUrl = URL(string: url) {
+                let request = URLRequest(url: imageUrl, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60)
+                let task = URLSession.shared.dataTask(with: request) {
+                    (data, response, err) in
+                    if (err == nil) {
+                        DispatchQueue.main.async {
+                            imageView.image = UIImage(data: data!)?.croppedImage(bounds: CGRect(x: 0, y: 0, width: 100, height: 100))
+                            // cell.layoutSubviews()
+                        }
+                    }
+                }
+                task.resume()
+            }
+        }
     }
 }

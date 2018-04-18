@@ -32,6 +32,10 @@
 		DB7162EF205B94100013CC34 /* ochamochiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162EE205B94100013CC34 /* ochamochiTests.swift */; };
 		DB7162FA205B94100013CC34 /* ochamochiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162F9205B94100013CC34 /* ochamochiUITests.swift */; };
 		DB82A5192085DAA1005FA4FD /* Mention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82A5182085DAA1005FA4FD /* Mention.swift */; };
+		DB82A51B2086FD32005FA4FD /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82A51A2086FD32005FA4FD /* Attachment.swift */; };
+		DB82A51D20870469005FA4FD /* UIImage+croppedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82A51C20870469005FA4FD /* UIImage+croppedImage.swift */; };
+		DB82A51F2087400E005FA4FD /* AttachmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82A51E2087400E005FA4FD /* AttachmentDetailViewController.swift */; };
+		DB82A52120874DB7005FA4FD /* AttachmentVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82A52020874DB7005FA4FD /* AttachmentVideoViewController.swift */; };
 		DBC3BBB4207610C1005211FC /* FavouritesTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBB3207610C1005211FC /* FavouritesTimelineViewController.swift */; };
 		DBC3BBB6207C8243005211FC /* TimelineViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */; };
 		DBC3BBBA207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */; };
@@ -104,6 +108,10 @@
 		DB7162F9205B94100013CC34 /* ochamochiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ochamochiUITests.swift; sourceTree = "<group>"; };
 		DB7162FB205B94100013CC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB82A5182085DAA1005FA4FD /* Mention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mention.swift; sourceTree = "<group>"; };
+		DB82A51A2086FD32005FA4FD /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		DB82A51C20870469005FA4FD /* UIImage+croppedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+croppedImage.swift"; sourceTree = "<group>"; };
+		DB82A51E2087400E005FA4FD /* AttachmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentDetailViewController.swift; sourceTree = "<group>"; };
+		DB82A52020874DB7005FA4FD /* AttachmentVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentVideoViewController.swift; sourceTree = "<group>"; };
 		DBC3BBB3207610C1005211FC /* FavouritesTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTimelineViewController.swift; sourceTree = "<group>"; };
 		DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCellDelegate.swift; sourceTree = "<group>"; };
 		DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
@@ -180,6 +188,7 @@
 				DB1D943D20720CFA00904759 /* Toot.swift */,
 				DBC3BBC1207DAEA2005211FC /* Emoji.swift */,
 				DB82A5182085DAA1005FA4FD /* Mention.swift */,
+				DB82A51A2086FD32005FA4FD /* Attachment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 				DBC3BBBD207CB780005211FC /* UIColor+buttonDefault.swift */,
 				DBC3BBBF207DAE75005211FC /* NSAttributedString+replaceEmoji.swift */,
 				DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */,
+				DB82A51C20870469005FA4FD /* UIImage+croppedImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -240,6 +250,8 @@
 				DBF866D12072282200EBF659 /* TimelineViewCell.swift */,
 				DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */,
 				DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */,
+				DB82A51E2087400E005FA4FD /* AttachmentDetailViewController.swift */,
+				DB82A52020874DB7005FA4FD /* AttachmentVideoViewController.swift */,
 				DB1D94382071F90200904759 /* MastodonUtil.swift */,
 				DBC3BBB9207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf */,
 				DBC3BBB8207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf */,
@@ -577,10 +589,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB82A51F2087400E005FA4FD /* AttachmentDetailViewController.swift in Sources */,
 				DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */,
 				DBC3BBBE207CB780005211FC /* UIColor+buttonDefault.swift in Sources */,
 				DB1D943E20720CFA00904759 /* Toot.swift in Sources */,
 				DB1D944420721EA500904759 /* UIImage+resize.swift in Sources */,
+				DB82A52120874DB7005FA4FD /* AttachmentVideoViewController.swift in Sources */,
 				DB7162DC205B94100013CC34 /* LocalTimelineViewController.swift in Sources */,
 				DBC3BBB6207C8243005211FC /* TimelineViewCellDelegate.swift in Sources */,
 				DBE11FF620749BCD0095AACE /* SelectAccountTableViewController.swift in Sources */,
@@ -592,6 +606,7 @@
 				DB3F9F48207363A1001C03F4 /* DateFormatter+date.swift in Sources */,
 				DB1D9433206CC28200904759 /* Instance.swift in Sources */,
 				DB1D94422072167800904759 /* FederatedTimelineViewController.swift in Sources */,
+				DB82A51D20870469005FA4FD /* UIImage+croppedImage.swift in Sources */,
 				DB3F9F4620736273001C03F4 /* Date+timeAgo.swift in Sources */,
 				DB3F9F4420735410001C03F4 /* MakeTootViewController.swift in Sources */,
 				DB1D9430206CB8FA00904759 /* MainTabBarController.swift in Sources */,
@@ -604,6 +619,7 @@
 				DBC3BBC0207DAE75005211FC /* NSAttributedString+replaceEmoji.swift in Sources */,
 				DBF5319720847C0E00629671 /* AccountTimelineViewController.swift in Sources */,
 				DBC3BBC4207DC5FE005211FC /* UIImage+fontAwesomeImage.swift in Sources */,
+				DB82A51B2086FD32005FA4FD /* Attachment.swift in Sources */,
 				DBC3BBB4207610C1005211FC /* FavouritesTimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

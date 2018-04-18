@@ -17,6 +17,7 @@ protocol TimelineViewCellDelegate {
     func confirmDelete(_ tootId: String)
     
     func accountDetail(_ accountId: String)
+    func attachmentDetail(_ attachment: Attachment)
 }
 
 extension TimelineViewCellDelegate where Self: TimelineViewController {
@@ -187,6 +188,24 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "AccountTimelineView") {
             (controller as! AccountTimelineViewController).accountId = accountId
             self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    func attachmentDetail(_ attachment: Attachment) {
+        if (attachment.type == "image") {
+            if let _controller = storyboard?.instantiateViewController(withIdentifier: "AttachmentDetailView") {
+                let controller = _controller as! AttachmentDetailViewController
+                controller.url = attachment.url
+                
+                self.present(controller, animated: true, completion: {})
+            }
+        } else if (attachment.type == "gifv" || attachment.type == "video"){
+            if let _controller = storyboard?.instantiateViewController(withIdentifier: "AttachmentVideoView") {
+                let controller = _controller as! AttachmentVideoViewController
+                controller.url = attachment.url
+                
+                self.present(controller, animated: true, completion: {})
+            }
         }
     }
     

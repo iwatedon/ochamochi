@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Font Awesome 5 Free-Solid-900.otf">
+            <string>FontAwesome5FreeSolid</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="ETD-Ht-etH">
@@ -495,6 +500,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQy-d9-JRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1276" y="1074.5127436281859"/>
+        </scene>
+        <!--Attachment Detail View Controller-->
+        <scene sceneID="52g-vY-AB8">
+            <objects>
+                <viewController storyboardIdentifier="AttachmentDetailView" id="sJ1-2I-cbJ" customClass="AttachmentDetailViewController" customModule="ochamochi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Xu-Zt-Vb1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" indicatorStyle="black" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="NWf-9j-4Pg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaY-dI-V1K">
+                                <rect key="frame" x="0.0" y="607" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ae4-bM-sVc"/>
+                                    <constraint firstAttribute="height" constant="60" id="T1W-ak-676"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="times"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="sJ1-2I-cbJ" eventType="touchUpInside" id="G6S-44-mcw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NWf-9j-4Pg" firstAttribute="trailing" secondItem="1bq-yU-odb" secondAttribute="trailing" id="7gO-9Q-XmB"/>
+                            <constraint firstItem="1bq-yU-odb" firstAttribute="bottom" secondItem="iaY-dI-V1K" secondAttribute="bottom" id="AS2-W7-rfP"/>
+                            <constraint firstItem="iaY-dI-V1K" firstAttribute="leading" secondItem="1bq-yU-odb" secondAttribute="leading" id="F43-K0-x44"/>
+                            <constraint firstItem="NWf-9j-4Pg" firstAttribute="leading" secondItem="1bq-yU-odb" secondAttribute="leading" id="Mj8-i1-mrp"/>
+                            <constraint firstItem="NWf-9j-4Pg" firstAttribute="bottom" secondItem="1bq-yU-odb" secondAttribute="bottom" id="OCZ-Qc-aJE"/>
+                            <constraint firstItem="NWf-9j-4Pg" firstAttribute="top" secondItem="3Xu-Zt-Vb1" secondAttribute="top" constant="20" id="VQ7-Zm-OAt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1bq-yU-odb"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="iaY-dI-V1K" id="YZu-E2-ea2"/>
+                        <outlet property="scrollView" destination="NWf-9j-4Pg" id="xMQ-mJ-ZdH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FPG-Rk-MuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2016.8" y="1077.2113943028487"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="xiI-DA-0Sb">
+            <objects>
+                <avPlayerViewController storyboardIdentifier="AttachmentVideoView" videoGravity="AVLayerVideoGravityResizeAspect" id="jc3-jq-LG1" customClass="AttachmentVideoViewController" customModule="ochamochi" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05e-wN-5MJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2706" y="1076"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Gp7-Di-SZZ">

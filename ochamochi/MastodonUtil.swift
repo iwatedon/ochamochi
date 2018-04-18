@@ -133,6 +133,31 @@ class MastodonUtil {
                                     }
                                 }
                                 
+                                if let _ = t["media_attachments"] {
+                                    let media_attachments = t["media_attachments"] as! [Any]
+                                    media_attachments.forEach { _attachment in
+                                        let tmp = _attachment as! [String:Any]
+                                        let attachment = Attachment()
+                                        attachment.id = tmp["id"] as! String?
+                                        attachment.type = tmp["type"] as! String?
+                                        attachment.url = tmp["url"] as! String?
+                                        attachment.previewUrl = tmp["preview_url"] as! String?
+                                        
+                                        if !(tmp["remote_url"] is NSNull) {
+                                            attachment.remoteUrl = tmp["remote_url"] as! String?
+                                        }
+                                        
+                                        if !(tmp["text_url"] is NSNull) {
+                                            attachment.textUrl = tmp["text_url"] as! String?
+                                        }
+                                        // attachment.meta = tmp["meta"] as! String?
+                                        if !(tmp["description"] is NSNull) {
+                                            attachment.description = tmp["description"] as! String?
+                                        }
+                                        toot.attachments.append(attachment)
+                                    }
+                                }
+                                
                                 toots.append(toot)
                             }
                             
