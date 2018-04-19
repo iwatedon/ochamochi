@@ -25,18 +25,33 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         cell.mentions = toot.mentions
         cell.attachments = toot.attachments
         
-        var contentText : String = ""
         if let spoiler_text = toot.spoilerText {
-            if (spoiler_text != "") {
+            if (spoiler_text != "" && toot.sensitive == true) {
                 // CW
-                contentText = spoiler_text + "\n\n" + toot.content!
+                showSpoilerTextView(cell)
+                cell.spoilerTextView?.attributedText = NSMutableAttributedString(string: spoiler_text, attributes: [:])
+                
+                cell.showContentButton?.isHidden = false
+                
+                cell.showContentButton?.setTitle("Show", for: .normal)
+                
+                cell.contentContainerView?.isHidden = true
+                cell.contentContainerViewHeight?.isActive = true
             } else {
-                contentText = toot.content!
+                hideSpoilerTextView(cell)
+                cell.showContentButton?.isHidden = true
+                
+                cell.contentContainerView?.isHidden = false
+                cell.contentContainerViewHeight?.isActive = false
             }
         } else {
-            contentText = toot.content!
+            hideSpoilerTextView(cell)
+            cell.showContentButton?.isHidden = true
+            
+            cell.contentContainerView?.isHidden = false
         }
-        var contentAttributedText = NSMutableAttributedString(string: contentText, attributes:[:])
+        
+        let contentAttributedText = NSMutableAttributedString(string: toot.content!, attributes:[:])
         cell.contentLabel?.attributedText = contentAttributedText
         
         // replace Emojis
@@ -53,6 +68,10 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                     attachment.bounds = CGRect(x: 0, y: 0, width: 20, height: 20)
                     
                     cell.contentLabel?.attributedText = cell.contentLabel?.attributedText.replaceEmoji(pattern: ":\(emoji.shortcode!):", replacement: NSAttributedString(attachment: attachment))
+                    
+                    if (toot.sensitive == true) {
+                    cell.spoilerTextView?.attributedText = cell.spoilerTextView?.attributedText.replaceEmoji(pattern: ":\(emoji.shortcode!):", replacement: NSAttributedString(attachment: attachment))
+                    }
                 } else {
                     print(error)
                 }
@@ -85,7 +104,9 @@ extension TimelineViewDelegate where Self: TimelineViewController {
             cell.attachmentImageView1?.isHidden = false
             
             // load attachment1
-            self.loadAttachmentPreview(url: toot.attachments[0].previewUrl!, imageView: cell.attachmentImageView1!, cell: cell)
+            if (toot.sensitive == false) {
+                self.loadAttachmentPreview(url: toot.attachments[0].previewUrl!, imageView: cell.attachmentImageView1!, cell: cell)
+            }
             
             if (toot.attachments.count > 1) {
                 cell.attachmentImageViewHeight2?.constant = 100
@@ -93,7 +114,9 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                 cell.attachmentImageView2?.isHidden = false
                 
                 // load attachment2
-                self.loadAttachmentPreview(url: toot.attachments[1].previewUrl!, imageView: cell.attachmentImageView2!, cell: cell)
+                if (toot.sensitive == false) {
+                    self.loadAttachmentPreview(url: toot.attachments[1].previewUrl!, imageView: cell.attachmentImageView2!, cell: cell)
+                }
                 
                 if (toot.attachments.count > 2) {
                     cell.attachmentImageViewHeight3?.constant = 100
@@ -101,7 +124,9 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                     cell.attachmentImageView3?.isHidden = false
                     
                     // load attachment3
-                    self.loadAttachmentPreview(url: toot.attachments[2].previewUrl!, imageView: cell.attachmentImageView3!, cell: cell)
+                    if (toot.sensitive == false) {
+                        self.loadAttachmentPreview(url: toot.attachments[2].previewUrl!, imageView: cell.attachmentImageView3!, cell: cell)
+                    }
                     
                     if (toot.attachments.count > 3) {
                         cell.attachmentImageViewHeight4?.constant = 100
@@ -109,7 +134,9 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                         cell.attachmentImageView4?.isHidden = false
                         
                         // load attachment4
-                        self.loadAttachmentPreview(url: toot.attachments[3].previewUrl!, imageView: cell.attachmentImageView4!, cell: cell)
+                        if (toot.sensitive == false) {
+                            self.loadAttachmentPreview(url: toot.attachments[3].previewUrl!, imageView: cell.attachmentImageView4!, cell: cell)
+                        }
                         
                     }
                     
@@ -196,13 +223,26 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                     (data, response, err) in
                     if (err == nil) {
                         DispatchQueue.main.async {
-                            imageView.image = UIImage(data: data!)?.croppedImage(bounds: CGRect(x: 0, y: 0, width: 100, height: 100))
-                            // cell.layoutSubviews()
+                            imageView.image = UIImage(data: data!)
                         }
                     }
                 }
                 task.resume()
             }
         }
+    }
+    
+    private func hideSpoilerTextView(_ cell: TimelineViewCell) {
+        cell.spoilerTextView?.isHidden = true
+        cell.spoilerTextViewHeightZero?.isActive = true
+        cell.spoilerTextViewHeight?.isActive = false
+        cell.spoilerTextViewTopSpace?.constant = 0
+    }
+    
+    private func showSpoilerTextView(_ cell: TimelineViewCell) {
+        cell.spoilerTextView?.isHidden = false
+        cell.spoilerTextViewHeightZero?.isActive = false
+        cell.spoilerTextViewHeight?.isActive = true
+        cell.spoilerTextViewTopSpace?.constant = 10
     }
 }

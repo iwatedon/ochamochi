@@ -10,6 +10,7 @@ The word "ochamochi" means a local cuisine of Iwate Prefecture, Japan, which is 
 - Adding an account with OAuth2.
   - Supporting multiple accounts per an instance.
 - Showing your home timeline, local timeline and federated timeline.
+  - Supporting sensitive toots (CW/NSFW).
   - Supporting custom emojis.
   - Showing images and movies attached to toots.
 - Showing account profile and statuses.

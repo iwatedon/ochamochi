@@ -25,6 +25,7 @@ class Toot {
     
     var favourited: Bool? = nil
     var reblogged: Bool? = nil // reblogged by me
+    var sensitive: Bool? = nil
     
     var emojis: [Emoji] = []
     var mentions: [Mention] = []

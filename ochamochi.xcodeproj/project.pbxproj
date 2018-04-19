@@ -47,6 +47,7 @@
 		DBC3BBC4207DC5FE005211FC /* UIImage+fontAwesomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */; };
 		DBC3BBC6207F2790005211FC /* AuthorizeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC5207F2790005211FC /* AuthorizeWebViewController.swift */; };
 		DBE11FF620749BCD0095AACE /* SelectAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */; };
+		DBEF48662089BE8300D0CE04 /* UIImage+cropForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF48652089BE8300D0CE04 /* UIImage+cropForPreview.swift */; };
 		DBF531952084757B00629671 /* TimelineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF531942084757B00629671 /* TimelineViewDelegate.swift */; };
 		DBF5319720847C0E00629671 /* AccountTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5319620847C0E00629671 /* AccountTimelineViewController.swift */; };
 		DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF866D12072282200EBF659 /* TimelineViewCell.swift */; };
@@ -123,6 +124,7 @@
 		DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+fontAwesomeImage.swift"; sourceTree = "<group>"; };
 		DBC3BBC5207F2790005211FC /* AuthorizeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeWebViewController.swift; sourceTree = "<group>"; };
 		DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTableViewController.swift; sourceTree = "<group>"; };
+		DBEF48652089BE8300D0CE04 /* UIImage+cropForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+cropForPreview.swift"; sourceTree = "<group>"; };
 		DBF531942084757B00629671 /* TimelineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewDelegate.swift; sourceTree = "<group>"; };
 		DBF5319620847C0E00629671 /* AccountTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTimelineViewController.swift; sourceTree = "<group>"; };
 		DBF866D12072282200EBF659 /* TimelineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCell.swift; sourceTree = "<group>"; };
@@ -198,12 +200,13 @@
 			children = (
 				DB1D943B207206A400904759 /* String+removeHTMLTag.swift */,
 				DB1D944320721EA500904759 /* UIImage+resize.swift */,
+				DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */,
+				DB82A51C20870469005FA4FD /* UIImage+croppedImage.swift */,
+				DBEF48652089BE8300D0CE04 /* UIImage+cropForPreview.swift */,
 				DB3F9F4520736273001C03F4 /* Date+timeAgo.swift */,
 				DB3F9F47207363A1001C03F4 /* DateFormatter+date.swift */,
 				DBC3BBBD207CB780005211FC /* UIColor+buttonDefault.swift */,
 				DBC3BBBF207DAE75005211FC /* NSAttributedString+replaceEmoji.swift */,
-				DBC3BBC3207DC5FE005211FC /* UIImage+fontAwesomeImage.swift */,
-				DB82A51C20870469005FA4FD /* UIImage+croppedImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				DB1D9437206E291400904759 /* Account.swift in Sources */,
 				DB7162D8205B94100013CC34 /* AppDelegate.swift in Sources */,
 				DB82A5192085DAA1005FA4FD /* Mention.swift in Sources */,
+				DBEF48662089BE8300D0CE04 /* UIImage+cropForPreview.swift in Sources */,
 				DB7162DA205B94100013CC34 /* HomeTimelineViewController.swift in Sources */,
 				DBC3BBC0207DAE75005211FC /* NSAttributedString+replaceEmoji.swift in Sources */,
 				DBF5319720847C0E00629671 /* AccountTimelineViewController.swift in Sources */,

@@ -14,6 +14,7 @@ protocol TimelineViewCellDelegate {
     func unfav(_ tootId: String)
     func reblog(_ tootId: String)
     func unreblog(_ tootId: String)
+    func reloadRow(_ tootId: String)
     func confirmDelete(_ tootId: String)
     
     func accountDetail(_ accountId: String)
@@ -134,6 +135,10 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
                 }
             }
         }
+    }
+    
+    func reloadRow(_ tootId: String) {
+        
     }
     
     private func favCommon(_ tootId: String, url: String) {

@@ -105,6 +105,7 @@ class MastodonUtil {
                                 
                                 toot.favourited = t["favourited"] as? Bool
                                 toot.reblogged = t["reblogged"] as? Bool
+                                toot.sensitive = t["sensitive"] as? Bool
                                 
                                 toot.visibility = t["visibility"] as? String
                                 

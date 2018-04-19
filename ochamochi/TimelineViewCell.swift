@@ -12,6 +12,17 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
     @IBOutlet var displayNameLabel: UILabel?
     @IBOutlet var acctLabel: UILabel?
     @IBOutlet var createdAtLabel: UILabel?
+    
+    @IBOutlet var spoilerTextView: UITextView?
+    @IBOutlet var spoilerTextViewHeight: NSLayoutConstraint?
+    @IBOutlet var spoilerTextViewHeightZero: NSLayoutConstraint?
+    @IBOutlet var spoilerTextViewTopSpace: NSLayoutConstraint?
+    
+    @IBOutlet var showContentButton: UIButton?
+    
+    @IBOutlet var contentContainerView: UIView?
+    @IBOutlet var contentContainerViewHeight: NSLayoutConstraint?
+    
     @IBOutlet var contentLabel: UITextView?
     @IBOutlet var avatarImageView: UIImageView?
     
@@ -71,6 +82,9 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
         gestureRecognizer4.delegate = self
         attachmentImageView4?.addGestureRecognizer(gestureRecognizer4)
         
+        spoilerTextView?.textContainerInset = UIEdgeInsets.zero
+        spoilerTextView?.textContainer.lineFragmentPadding = 0
+        spoilerTextView?.delegate = self
         
         contentLabel?.textContainerInset = UIEdgeInsets.zero
         contentLabel?.textContainer.lineFragmentPadding = 0
@@ -111,6 +125,20 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
                 delegate?.confirmDelete(self.tootId!)
             }
         }
+    }
+    
+    @IBAction func showButtonTapped(_ sender: UIButton?) {
+        (delegate as! UITableViewController).tableView.beginUpdates()
+        if (sender?.titleLabel?.text == "Show") {
+            self.contentContainerView?.isHidden = false
+            self.contentContainerViewHeight?.isActive = false
+            sender?.setTitle("Hide", for: .normal)
+        } else {
+            self.contentContainerView?.isHidden = true
+            self.contentContainerViewHeight?.isActive = true
+            sender?.setTitle("Show", for: .normal)
+        }
+        (delegate as! UITableViewController).tableView.endUpdates()
     }
     
     @IBAction func attachmentImageView1Tapped(_ sender: UIImageView?) {
