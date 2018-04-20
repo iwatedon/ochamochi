@@ -55,6 +55,11 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
         }
     }
     
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // cancel all unused image loading tasks
+        (cell as! TimelineViewCell).clearAllImages()
+    }
+    
     // return max_id
     func loadTimeline() {
         if let currentAccount = MastodonUtil.getCurrentAccount() {
@@ -106,7 +111,6 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
                 return
             } else if tableView.contentOffset.y + tableView.frame.size.height > tableView.contentSize.height && tableView.isDragging {
                 isLoading = true
-                print("API呼ばれる")
                 loadTimeline(maxId: currentMaxId!)
             }
         }

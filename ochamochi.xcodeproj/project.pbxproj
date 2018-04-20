@@ -48,6 +48,7 @@
 		DBC3BBC6207F2790005211FC /* AuthorizeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BBC5207F2790005211FC /* AuthorizeWebViewController.swift */; };
 		DBE11FF620749BCD0095AACE /* SelectAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */; };
 		DBEF48662089BE8300D0CE04 /* UIImage+cropForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF48652089BE8300D0CE04 /* UIImage+cropForPreview.swift */; };
+		DBEF4868208DB09600D0CE04 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF4867208DB09600D0CE04 /* AsyncImageView.swift */; };
 		DBF531952084757B00629671 /* TimelineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF531942084757B00629671 /* TimelineViewDelegate.swift */; };
 		DBF5319720847C0E00629671 /* AccountTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5319620847C0E00629671 /* AccountTimelineViewController.swift */; };
 		DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF866D12072282200EBF659 /* TimelineViewCell.swift */; };
@@ -125,6 +126,7 @@
 		DBC3BBC5207F2790005211FC /* AuthorizeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeWebViewController.swift; sourceTree = "<group>"; };
 		DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTableViewController.swift; sourceTree = "<group>"; };
 		DBEF48652089BE8300D0CE04 /* UIImage+cropForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+cropForPreview.swift"; sourceTree = "<group>"; };
+		DBEF4867208DB09600D0CE04 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		DBF531942084757B00629671 /* TimelineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewDelegate.swift; sourceTree = "<group>"; };
 		DBF5319620847C0E00629671 /* AccountTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTimelineViewController.swift; sourceTree = "<group>"; };
 		DBF866D12072282200EBF659 /* TimelineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCell.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				DB82A51E2087400E005FA4FD /* AttachmentDetailViewController.swift */,
 				DB82A52020874DB7005FA4FD /* AttachmentVideoViewController.swift */,
 				DB1D94382071F90200904759 /* MastodonUtil.swift */,
+				DBEF4867208DB09600D0CE04 /* AsyncImageView.swift */,
 				DBC3BBB9207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf */,
 				DBC3BBB8207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf */,
 				DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */,
@@ -605,6 +608,7 @@
 				DB1D943C207206A400904759 /* String+removeHTMLTag.swift in Sources */,
 				DB1D942E206CB56500904759 /* NewInstanceViewController.swift in Sources */,
 				DB1D94402072139D00904759 /* TimelineViewController.swift in Sources */,
+				DBEF4868208DB09600D0CE04 /* AsyncImageView.swift in Sources */,
 				DBC3BBC6207F2790005211FC /* AuthorizeWebViewController.swift in Sources */,
 				DB3F9F48207363A1001C03F4 /* DateFormatter+date.swift in Sources */,
 				DB1D9433206CC28200904759 /* Instance.swift in Sources */,

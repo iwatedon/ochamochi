@@ -22,6 +22,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         cell.tootId = toot.id
         cell.accountId = toot.accountId
         cell.accountAcct = toot.accountAcct
+        cell.accountAvatar = toot.accountAvatar
         cell.mentions = toot.mentions
         cell.attachments = toot.attachments
         
@@ -115,7 +116,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
             
             // load attachment1
             if (toot.sensitive == false) {
-                self.loadAttachmentPreview(url: toot.attachments[0].previewUrl!, imageView: cell.attachmentImageView1!, cell: cell)
+                cell.attachmentImageView1Task = cell.attachmentImageView1?.imageAsync(urlString: toot.attachments[0].previewUrl!)
             }
             
             if (toot.attachments.count > 1) {
@@ -125,7 +126,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                 
                 // load attachment2
                 if (toot.sensitive == false) {
-                    self.loadAttachmentPreview(url: toot.attachments[1].previewUrl!, imageView: cell.attachmentImageView2!, cell: cell)
+                    cell.attachmentImageView2Task =  cell.attachmentImageView2?.imageAsync(urlString: toot.attachments[1].previewUrl!)
                 }
                 
                 if (toot.attachments.count > 2) {
@@ -135,7 +136,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                     
                     // load attachment3
                     if (toot.sensitive == false) {
-                        self.loadAttachmentPreview(url: toot.attachments[2].previewUrl!, imageView: cell.attachmentImageView3!, cell: cell)
+                        cell.attachmentImageView3Task = cell.attachmentImageView3?.imageAsync(urlString: toot.attachments[2].previewUrl!)
                     }
                     
                     if (toot.attachments.count > 3) {
@@ -145,7 +146,7 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                         
                         // load attachment4
                         if (toot.sensitive == false) {
-                            self.loadAttachmentPreview(url: toot.attachments[3].previewUrl!, imageView: cell.attachmentImageView4!, cell: cell)
+                            cell.attachmentImageView4Task =   cell.attachmentImageView4?.imageAsync(urlString: toot.attachments[3].previewUrl!)
                         }
                         
                     }
@@ -205,43 +206,11 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         cell.deleteButton?.isHidden = (MastodonUtil.normalizeAcct(toot.accountAcct!) != MastodonUtil.getCurrentAccount()?.acct)
         
         // read avatar image
-        DispatchQueue.global().async {
-            if let imageUrl = URL(string: toot.accountAvatar!) {
-                let request = URLRequest(url: imageUrl, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60)
-                let task = URLSession.shared.dataTask(with: request) {
-                    (data, response, err) in
-                    if (err == nil) {
-                        DispatchQueue.main.async {
-                            cell.avatarImageView!.image = UIImage(data: data!)?.resize(size: CGSize(width:60, height:60))
-                            // cell.layoutSubviews()
-                        }
-                    }
-                }
-                task.resume()
-            }
-        }
+        cell.avatarImageTask = cell.avatarImageView?.imageAsync(urlString: toot.accountAvatar!)
         
         cell.layoutSubviews()
         
         return cell
-    }
-    
-    // load attachment preview image
-    private func loadAttachmentPreview(url: String, imageView: UIImageView, cell: UITableViewCell) {
-        DispatchQueue.global().async {
-            if let imageUrl = URL(string: url) {
-                let request = URLRequest(url: imageUrl, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60)
-                let task = URLSession.shared.dataTask(with: request) {
-                    (data, response, err) in
-                    if (err == nil) {
-                        DispatchQueue.main.async {
-                            imageView.image = UIImage(data: data!)
-                        }
-                    }
-                }
-                task.resume()
-            }
-        }
     }
     
     private func hideSpoilerTextView(_ cell: TimelineViewCell) {

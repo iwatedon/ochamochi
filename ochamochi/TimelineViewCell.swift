@@ -24,23 +24,30 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
     @IBOutlet var contentContainerViewHeight: NSLayoutConstraint?
     
     @IBOutlet var contentLabel: UITextView?
-    @IBOutlet var avatarImageView: UIImageView?
     
-    @IBOutlet var attachmentImageView1: UIImageView?
+    @IBOutlet var avatarImageView: AsyncImageView?
+    
+    @IBOutlet var attachmentImageView1: AsyncImageView?
     @IBOutlet var attachmentImageViewHeight1: NSLayoutConstraint?
     @IBOutlet var attachmentImageViewTopSpace1: NSLayoutConstraint?
     
-    @IBOutlet var attachmentImageView2: UIImageView?
+    @IBOutlet var attachmentImageView2: AsyncImageView?
     @IBOutlet var attachmentImageViewHeight2: NSLayoutConstraint?
     @IBOutlet var attachmentImageViewTopSpace2: NSLayoutConstraint?
     
-    @IBOutlet var attachmentImageView3: UIImageView?
+    @IBOutlet var attachmentImageView3: AsyncImageView?
     @IBOutlet var attachmentImageViewHeight3: NSLayoutConstraint?
     @IBOutlet var attachmentImageViewTopSpace3: NSLayoutConstraint?
     
-    @IBOutlet var attachmentImageView4: UIImageView?
+    @IBOutlet var attachmentImageView4: AsyncImageView?
     @IBOutlet var attachmentImageViewHeight4: NSLayoutConstraint?
     @IBOutlet var attachmentImageViewTopSpace4: NSLayoutConstraint?
+    
+    var avatarImageTask : URLSessionDataTask? = nil
+    var attachmentImageView1Task : URLSessionDataTask? = nil
+    var attachmentImageView2Task : URLSessionDataTask? = nil
+    var attachmentImageView3Task : URLSessionDataTask? = nil
+    var attachmentImageView4Task : URLSessionDataTask? = nil
     
     @IBOutlet var boostLabel: UILabel?
     @IBOutlet var boostLabelHeight : NSLayoutConstraint?
@@ -57,6 +64,7 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
     
     var accountId: String? = nil
     var accountAcct: String? = nil
+    var accountAvatar: String? = nil
     
     var mentions: [Mention] = []
     var attachments: [Attachment] = []
@@ -90,6 +98,10 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
         contentLabel?.textContainerInset = UIEdgeInsets.zero
         contentLabel?.textContainer.lineFragmentPadding = 0
         contentLabel?.delegate = self
+    }
+    
+    override func prepareForReuse() {
+        clearAllImages()
     }
     
     func tappedImageView(_ sender: UITapGestureRecognizer) {
@@ -181,5 +193,21 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
             }
         }
         return true
+    }
+    
+    func clearAllImages() {
+        // cancel image loading tasks
+        if let task = avatarImageTask { task.cancel() }
+        if let task = attachmentImageView1Task { task.cancel() }
+        if let task = attachmentImageView2Task { task.cancel() }
+        if let task = attachmentImageView3Task { task.cancel() }
+        if let task = attachmentImageView4Task { task.cancel() }
+        
+        // clear images
+        avatarImageView?.image = nil
+        attachmentImageView1?.image = nil
+        attachmentImageView2?.image = nil
+        attachmentImageView3?.image = nil
+        attachmentImageView4?.image = nil
     }
 }
