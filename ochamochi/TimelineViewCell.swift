@@ -44,6 +44,7 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
     
     @IBOutlet var boostLabel: UILabel?
     @IBOutlet var boostLabelHeight : NSLayoutConstraint?
+    @IBOutlet var boostLabelBottomSpace: NSLayoutConstraint?
     
     @IBOutlet var replyButton: UIButton?
     @IBOutlet var boostButton: UIButton?

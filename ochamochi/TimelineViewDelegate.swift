@@ -54,6 +54,9 @@ extension TimelineViewDelegate where Self: TimelineViewController {
         let contentAttributedText = NSMutableAttributedString(string: toot.content!, attributes:[:])
         cell.contentLabel?.attributedText = contentAttributedText
         
+        cell.contentLabel?.font = UIFont.systemFont(ofSize: 16)
+        cell.spoilerTextView?.font = UIFont.systemFont(ofSize: 16)
+        
         // replace Emojis
         toot.emojis.forEach { emoji in
             let request = URLRequest(url: URL(string: emoji.staticUrl!)!,
@@ -72,13 +75,20 @@ extension TimelineViewDelegate where Self: TimelineViewController {
                     if (toot.sensitive == true) {
                     cell.spoilerTextView?.attributedText = cell.spoilerTextView?.attributedText.replaceEmoji(pattern: ":\(emoji.shortcode!):", replacement: NSAttributedString(attachment: attachment))
                     }
+                    
+                    cell.contentLabel?.font = UIFont.systemFont(ofSize: 16)
+                    cell.spoilerTextView?.font = UIFont.systemFont(ofSize: 16)
                 } else {
                     print(error)
                 }
             }).resume()
         }
         
-        cell.displayNameLabel?.text = toot.accountDisplayName!
+        if (toot.accountDisplayName! != "") {
+            cell.displayNameLabel?.text = toot.accountDisplayName!
+        } else {
+            cell.displayNameLabel?.text = String(toot.accountAcct!.split(separator: "@").first!)
+        }
         cell.acctLabel?.text = "@" + toot.accountAcct!
         cell.createdAtLabel?.text = toot.createdAt?.shortTimeAgoSinceNow
         
@@ -149,9 +159,11 @@ extension TimelineViewDelegate where Self: TimelineViewController {
             cell.boostLabel?.isHidden = false
             cell.boostLabel?.text = "\(toot.boostAccontDisplayName!) boosted"
             cell.boostLabelHeight?.constant = 15
+            cell.boostLabelBottomSpace?.constant = 5
         } else {
             cell.boostLabel?.isHidden = true
             cell.boostLabelHeight?.constant = 0
+            cell.boostLabelBottomSpace?.constant = 0
         }
         
         cell.replyButton?.setTitleColor(UIColor.gray, for: .normal)
