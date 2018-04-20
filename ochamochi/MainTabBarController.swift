@@ -7,24 +7,40 @@
 import UIKit
 import Floaty
 
-class MainTabBarController: UITabBarController, FloatyDelegate {
+class MainTabBarController: UITabBarController, FloatyDelegate, UITabBarControllerDelegate {
     var floaty: Floaty? = nil
+    
+    // use to scrolling tableviews to top when tapping tabbar.
+    var previousController: UIViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.delegate = self
+        
         floaty = Floaty()
         floaty!.fabDelegate = self
         floaty!.sticky = true
         floaty!.friendlyTap = false
         floaty!.paddingY = floaty!.paddingY + 49.0
         self.view.addSubview(floaty!)
+        
+        self.previousController = self.viewControllers?.first
     }
     
     func emptyFloatySelected(_ floaty: Floaty) {
         toot()
     }
-    
+
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if (viewController is UITableViewController && viewController == previousController) {
+            let _controller = viewController as! UITableViewController
+            if (_controller.tableView.numberOfSections > 0 && _controller.tableView.numberOfRows(inSection: 0) > 0) {
+                _controller.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            }
+        }
+        previousController = viewController
+    }
     
     func toot() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "MakeTootView") {
