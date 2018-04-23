@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="NotificationTimelineViewCell" customModule="ochamochi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="116"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="388" height="115.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Z6-Nt-uhL" customClass="AsyncImageView" customModule="ochamochi" customModuleProvider="target">
+                        <rect key="frame" x="15" y="15" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="YMI-l0-1Xz"/>
+                            <constraint firstAttribute="width" constant="60" id="vUT-yz-lWB"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N19-FC-pYn">
+                        <rect key="frame" x="85" y="15" width="283" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="tsF-oq-jdg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CWH-8c-mHQ" customClass="AsyncImageView" customModule="ochamochi" customModuleProvider="target">
+                        <rect key="frame" x="85" y="58" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="EMP-Ej-zLP"/>
+                            <constraint firstAttribute="width" constant="30" id="r9z-xj-ft3"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sf8-9T-vEt">
+                        <rect key="frame" x="125" y="49" width="248" height="57"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="N19-FC-pYn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="1Xv-6n-Nx7"/>
+                    <constraint firstItem="CWH-8c-mHQ" firstAttribute="leading" secondItem="4Z6-Nt-uhL" secondAttribute="trailing" constant="10" id="60j-DK-dSb"/>
+                    <constraint firstItem="CWH-8c-mHQ" firstAttribute="top" secondItem="N19-FC-pYn" secondAttribute="bottom" constant="10" id="867-Cw-6k9"/>
+                    <constraint firstAttribute="trailing" secondItem="N19-FC-pYn" secondAttribute="trailing" constant="15" id="Ddc-w6-z0h"/>
+                    <constraint firstItem="4Z6-Nt-uhL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Go1-uV-9eI"/>
+                    <constraint firstAttribute="bottom" secondItem="Sf8-9T-vEt" secondAttribute="bottom" constant="15" id="Jhe-OC-eIr"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4Z6-Nt-uhL" secondAttribute="bottom" constant="15" id="O5O-OD-RJj"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="CWH-8c-mHQ" secondAttribute="bottom" constant="15" id="VQF-dA-q6Q"/>
+                    <constraint firstItem="Sf8-9T-vEt" firstAttribute="leading" secondItem="CWH-8c-mHQ" secondAttribute="trailing" constant="10" id="Vzo-Cg-Rko"/>
+                    <constraint firstAttribute="trailing" secondItem="Sf8-9T-vEt" secondAttribute="trailing" constant="15" id="awb-s3-JL0"/>
+                    <constraint firstItem="Sf8-9T-vEt" firstAttribute="top" secondItem="N19-FC-pYn" secondAttribute="bottom" constant="10" id="gYg-9W-92T"/>
+                    <constraint firstItem="N19-FC-pYn" firstAttribute="leading" secondItem="4Z6-Nt-uhL" secondAttribute="trailing" constant="10" id="iT2-I9-lI7"/>
+                    <constraint firstItem="4Z6-Nt-uhL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="pgf-Zt-ZIT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="avatarImageView" destination="4Z6-Nt-uhL" id="336-5j-FBs"/>
+                <outlet property="contentTextView" destination="Sf8-9T-vEt" id="H8f-PI-7eG"/>
+                <outlet property="tootAvatarImageView" destination="CWH-8c-mHQ" id="PHw-5x-WHe"/>
+                <outlet property="typeTextView" destination="N19-FC-pYn" id="Jll-rG-eOt"/>
+            </connections>
+            <point key="canvasLocation" x="86" y="120"/>
+        </tableViewCell>
+    </objects>
+</document>

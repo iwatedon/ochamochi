@@ -186,6 +186,72 @@ class MastodonUtil {
         return
     }
     
+    static func loadNotification(_ sinceId : String? = nil, maxId : String? = nil, timelineUrl : String = "", parameters: OAuthSwift.Parameters = [:],  success : @escaping (([MastodonNotification], String?) -> Void) = {notifications, maxId in}) {
+        var notifications : [MastodonNotification] = []
+        
+        if let currentAccount = MastodonUtil.getCurrentAccount() {
+            if let currentInstance = MastodonUtil.getCurrentInstance() {
+                let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
+                oauthswift.client.credential.oauthToken = currentAccount.accessToken
+                let _  = oauthswift.client.get(
+                    timelineUrl,
+                    parameters: parameters,
+                    success: { response in
+                        do {
+                            let dataString = response.string
+                            let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
+                            let _notifications = json as! [Any]
+                            _notifications.forEach { _notification in
+                                var notification = MastodonNotification()
+                                var n = _notification as! [String:Any]
+                                
+                                notification.id = n["id"] as? String
+                                notification.type = n["type"] as? String
+                                notification.createdAt = DateFormatter().date(fromSwapiString: (n["created_at"] as? String)!)
+                                
+                                var a = n["account"] as! [String:Any]
+                                notification.accountId = a["id"] as? String
+                                notification.accountAcct = a["acct"] as? String
+                                notification.accountDisplayName = a["display_name"] as? String
+                                notification.accountAvatar = a["avatar"] as? String
+                                
+                                if (n["status"] != nil) {
+                                    var t = n["status"] as! [String:Any]
+                                    notification.tootId = t["id"] as? String
+                                    notification.tootUri = t["uri"] as? String
+                                    notification.tootUrl = t["url"] as? String
+                                    notification.tootContent = (t["content"] as? String)?.removeHTMLTag()
+                                    notification.tootSpoilerText = t["spoiler_text"] as? String
+                                    
+                                    var me = t["account"] as! [String:Any]
+                                    
+                                    notification.tootAccountAvatar = me["avatar"] as? String
+                                }
+                                
+                                notifications.append(notification)
+                            }
+                            var maxId : String? = nil
+                            if (notifications.count > 0) {
+                                maxId = notifications[0].id
+                            }
+                            
+                            DispatchQueue.main.async {
+                                success(notifications, maxId)
+                            }
+                        } catch {
+                            print(error)
+                        }
+                    },
+                    failure: { error in
+                        print(error)
+                    }
+                )
+            }
+        }
+        
+        return
+    }
+    
     static func normalizeAcct(_ acct: String) -> String {
         if (acct.contains("@")) {
             return acct

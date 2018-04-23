@@ -174,7 +174,7 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
         }
     }
     
-    private func updateTitleView() {
+    func updateTitleView() {
         let titleLabel = UILabel()
         titleLabel.isUserInteractionEnabled = true
         titleLabel.text = MastodonUtil.getCurrentAccount()?.acct
@@ -185,7 +185,7 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
 
     }
     
-    private func setupRightBarButtonItems() {
+    func setupRightBarButtonItems() {
         let item1 = UIBarButtonItem(title: "sign-out-alt", style: .plain, target: self, action: #selector(TimelineViewController.logout))
         item1.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome5FreeSolid", size: 20)], for: .normal)
         self.parent!.navigationItem.rightBarButtonItems = [item1]

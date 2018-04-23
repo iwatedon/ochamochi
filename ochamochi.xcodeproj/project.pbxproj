@@ -52,6 +52,10 @@
 		DBE11FF620749BCD0095AACE /* SelectAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */; };
 		DBEF48662089BE8300D0CE04 /* UIImage+cropForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF48652089BE8300D0CE04 /* UIImage+cropForPreview.swift */; };
 		DBEF4868208DB09600D0CE04 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF4867208DB09600D0CE04 /* AsyncImageView.swift */; };
+		DBEF486A208DBAB500D0CE04 /* NotificationTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF4869208DBAB500D0CE04 /* NotificationTimelineViewController.swift */; };
+		DBEF486F208DBEEF00D0CE04 /* NotificationTimelineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF486D208DBEEF00D0CE04 /* NotificationTimelineViewCell.swift */; };
+		DBEF4870208DBEEF00D0CE04 /* NotificationTimelineViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEF486E208DBEEF00D0CE04 /* NotificationTimelineViewCell.xib */; };
+		DBEF4872208DBFCA00D0CE04 /* MastodonNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF4871208DBFCA00D0CE04 /* MastodonNotification.swift */; };
 		DBF531952084757B00629671 /* TimelineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF531942084757B00629671 /* TimelineViewDelegate.swift */; };
 		DBF5319720847C0E00629671 /* AccountTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5319620847C0E00629671 /* AccountTimelineViewController.swift */; };
 		DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF866D12072282200EBF659 /* TimelineViewCell.swift */; };
@@ -133,6 +137,10 @@
 		DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTableViewController.swift; sourceTree = "<group>"; };
 		DBEF48652089BE8300D0CE04 /* UIImage+cropForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+cropForPreview.swift"; sourceTree = "<group>"; };
 		DBEF4867208DB09600D0CE04 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		DBEF4869208DBAB500D0CE04 /* NotificationTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimelineViewController.swift; sourceTree = "<group>"; };
+		DBEF486D208DBEEF00D0CE04 /* NotificationTimelineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimelineViewCell.swift; sourceTree = "<group>"; };
+		DBEF486E208DBEEF00D0CE04 /* NotificationTimelineViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTimelineViewCell.xib; sourceTree = "<group>"; };
+		DBEF4871208DBFCA00D0CE04 /* MastodonNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastodonNotification.swift; sourceTree = "<group>"; };
 		DBF531942084757B00629671 /* TimelineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewDelegate.swift; sourceTree = "<group>"; };
 		DBF5319620847C0E00629671 /* AccountTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTimelineViewController.swift; sourceTree = "<group>"; };
 		DBF866D12072282200EBF659 /* TimelineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCell.swift; sourceTree = "<group>"; };
@@ -199,6 +207,7 @@
 				DBC3BBC1207DAEA2005211FC /* Emoji.swift */,
 				DB82A5182085DAA1005FA4FD /* Mention.swift */,
 				DB82A51A2086FD32005FA4FD /* Attachment.swift */,
+				DBEF4871208DBFCA00D0CE04 /* MastodonNotification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,10 +265,12 @@
 				DB1D94412072167800904759 /* FederatedTimelineViewController.swift */,
 				DBC3BBB3207610C1005211FC /* FavouritesTimelineViewController.swift */,
 				DBF5319620847C0E00629671 /* AccountTimelineViewController.swift */,
+				DBEF4869208DBAB500D0CE04 /* NotificationTimelineViewController.swift */,
 				DB3F9F4320735410001C03F4 /* MakeTootViewController.swift */,
 				DBF531942084757B00629671 /* TimelineViewDelegate.swift */,
 				DBF866D12072282200EBF659 /* TimelineViewCell.swift */,
 				DBC3BBB5207C8243005211FC /* TimelineViewCellDelegate.swift */,
+				DBEF486D208DBEEF00D0CE04 /* NotificationTimelineViewCell.swift */,
 				DBE11FF520749BCD0095AACE /* SelectAccountTableViewController.swift */,
 				DB82A51E2087400E005FA4FD /* AttachmentDetailViewController.swift */,
 				DB82A52020874DB7005FA4FD /* AttachmentVideoViewController.swift */,
@@ -275,6 +286,7 @@
 				DB7162E2205B94100013CC34 /* LaunchScreen.storyboard */,
 				DB1D9445207226CC00904759 /* TimelineViewCell.xib */,
 				DB43E7932181B8070023F96F /* CustomEmojiPickerCollectionViewCell.xib */,
+				DBEF486E208DBEEF00D0CE04 /* NotificationTimelineViewCell.xib */,
 				DB7162E5205B94100013CC34 /* Info.plist */,
 			);
 			path = ochamochi;
@@ -418,6 +430,7 @@
 				DB7162E1205B94100013CC34 /* Assets.xcassets in Resources */,
 				DB7162DF205B94100013CC34 /* Main.storyboard in Resources */,
 				DB43E7952181B8070023F96F /* CustomEmojiPickerCollectionViewCell.xib in Resources */,
+				DBEF4870208DBEEF00D0CE04 /* NotificationTimelineViewCell.xib in Resources */,
 				DB1D9446207226CC00904759 /* TimelineViewCell.xib in Resources */,
 				DBC3BBBC207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				DBC3BBBA207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf in Resources */,
@@ -608,6 +621,7 @@
 				DB43E7942181B8070023F96F /* CustomEmojiPickerCollectionViewCell.swift in Sources */,
 				DB82A51F2087400E005FA4FD /* AttachmentDetailViewController.swift in Sources */,
 				DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */,
+				DBEF486F208DBEEF00D0CE04 /* NotificationTimelineViewCell.swift in Sources */,
 				DBC3BBBE207CB780005211FC /* UIColor+buttonDefault.swift in Sources */,
 				DB1D943E20720CFA00904759 /* Toot.swift in Sources */,
 				DB1D944420721EA500904759 /* UIImage+resize.swift in Sources */,
@@ -625,6 +639,7 @@
 				DB3F9F48207363A1001C03F4 /* DateFormatter+date.swift in Sources */,
 				DB1D9433206CC28200904759 /* Instance.swift in Sources */,
 				DB1D94422072167800904759 /* FederatedTimelineViewController.swift in Sources */,
+				DBEF4872208DBFCA00D0CE04 /* MastodonNotification.swift in Sources */,
 				DB82A51D20870469005FA4FD /* UIImage+croppedImage.swift in Sources */,
 				DB3F9F4620736273001C03F4 /* Date+timeAgo.swift in Sources */,
 				DB3F9F4420735410001C03F4 /* MakeTootViewController.swift in Sources */,
@@ -637,6 +652,7 @@
 				DBEF48662089BE8300D0CE04 /* UIImage+cropForPreview.swift in Sources */,
 				DB7162DA205B94100013CC34 /* HomeTimelineViewController.swift in Sources */,
 				DBC3BBC0207DAE75005211FC /* NSAttributedString+replaceEmoji.swift in Sources */,
+				DBEF486A208DBAB500D0CE04 /* NotificationTimelineViewController.swift in Sources */,
 				DBF5319720847C0E00629671 /* AccountTimelineViewController.swift in Sources */,
 				DBC3BBC4207DC5FE005211FC /* UIImage+fontAwesomeImage.swift in Sources */,
 				DB82A51B2086FD32005FA4FD /* Attachment.swift in Sources */,

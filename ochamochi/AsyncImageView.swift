@@ -2,8 +2,6 @@
 //  AsyncImageView.swift
 //  ochamochi
 //
-//  Created by さとうおさむ on 2018/04/23.
-//
 
 import UIKit
 
