@@ -23,6 +23,9 @@
 		DB3F9F4420735410001C03F4 /* MakeTootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F9F4320735410001C03F4 /* MakeTootViewController.swift */; };
 		DB3F9F4620736273001C03F4 /* Date+timeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F9F4520736273001C03F4 /* Date+timeAgo.swift */; };
 		DB3F9F48207363A1001C03F4 /* DateFormatter+date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F9F47207363A1001C03F4 /* DateFormatter+date.swift */; };
+		DB43E79121819A820023F96F /* CustomEmojiPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43E79021819A820023F96F /* CustomEmojiPickerViewController.swift */; };
+		DB43E7942181B8070023F96F /* CustomEmojiPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43E7922181B8070023F96F /* CustomEmojiPickerCollectionViewCell.swift */; };
+		DB43E7952181B8070023F96F /* CustomEmojiPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB43E7932181B8070023F96F /* CustomEmojiPickerCollectionViewCell.xib */; };
 		DB7162D8205B94100013CC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162D7205B94100013CC34 /* AppDelegate.swift */; };
 		DB7162DA205B94100013CC34 /* HomeTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162D9205B94100013CC34 /* HomeTimelineViewController.swift */; };
 		DB7162DC205B94100013CC34 /* LocalTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7162DB205B94100013CC34 /* LocalTimelineViewController.swift */; };
@@ -95,6 +98,9 @@
 		DB3F9F4320735410001C03F4 /* MakeTootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTootViewController.swift; sourceTree = "<group>"; };
 		DB3F9F4520736273001C03F4 /* Date+timeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+timeAgo.swift"; sourceTree = "<group>"; };
 		DB3F9F47207363A1001C03F4 /* DateFormatter+date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+date.swift"; sourceTree = "<group>"; };
+		DB43E79021819A820023F96F /* CustomEmojiPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmojiPickerViewController.swift; sourceTree = "<group>"; };
+		DB43E7922181B8070023F96F /* CustomEmojiPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmojiPickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB43E7932181B8070023F96F /* CustomEmojiPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomEmojiPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB7162D4205B94100013CC34 /* ochamochi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ochamochi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7162D7205B94100013CC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB7162D9205B94100013CC34 /* HomeTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTimelineViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +265,8 @@
 				DB82A52020874DB7005FA4FD /* AttachmentVideoViewController.swift */,
 				DB1D94382071F90200904759 /* MastodonUtil.swift */,
 				DBEF4867208DB09600D0CE04 /* AsyncImageView.swift */,
+				DB43E79021819A820023F96F /* CustomEmojiPickerViewController.swift */,
+				DB43E7922181B8070023F96F /* CustomEmojiPickerCollectionViewCell.swift */,
 				DBC3BBB9207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf */,
 				DBC3BBB8207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf */,
 				DBC3BBB7207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf */,
@@ -266,6 +274,7 @@
 				DB7162E0205B94100013CC34 /* Assets.xcassets */,
 				DB7162E2205B94100013CC34 /* LaunchScreen.storyboard */,
 				DB1D9445207226CC00904759 /* TimelineViewCell.xib */,
+				DB43E7932181B8070023F96F /* CustomEmojiPickerCollectionViewCell.xib */,
 				DB7162E5205B94100013CC34 /* Info.plist */,
 			);
 			path = ochamochi;
@@ -408,6 +417,7 @@
 				DBC3BBBB207CB1CD005211FC /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				DB7162E1205B94100013CC34 /* Assets.xcassets in Resources */,
 				DB7162DF205B94100013CC34 /* Main.storyboard in Resources */,
+				DB43E7952181B8070023F96F /* CustomEmojiPickerCollectionViewCell.xib in Resources */,
 				DB1D9446207226CC00904759 /* TimelineViewCell.xib in Resources */,
 				DBC3BBBC207CB1CD005211FC /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				DBC3BBBA207CB1CD005211FC /* Font Awesome 5 Free-Solid-900.otf in Resources */,
@@ -595,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB43E7942181B8070023F96F /* CustomEmojiPickerCollectionViewCell.swift in Sources */,
 				DB82A51F2087400E005FA4FD /* AttachmentDetailViewController.swift in Sources */,
 				DBF866D22072282200EBF659 /* TimelineViewCell.swift in Sources */,
 				DBC3BBBE207CB780005211FC /* UIColor+buttonDefault.swift in Sources */,
@@ -606,6 +617,7 @@
 				DBE11FF620749BCD0095AACE /* SelectAccountTableViewController.swift in Sources */,
 				DB1D94392071F90200904759 /* MastodonUtil.swift in Sources */,
 				DB1D943C207206A400904759 /* String+removeHTMLTag.swift in Sources */,
+				DB43E79121819A820023F96F /* CustomEmojiPickerViewController.swift in Sources */,
 				DB1D942E206CB56500904759 /* NewInstanceViewController.swift in Sources */,
 				DB1D94402072139D00904759 /* TimelineViewController.swift in Sources */,
 				DBEF4868208DB09600D0CE04 /* AsyncImageView.swift in Sources */,

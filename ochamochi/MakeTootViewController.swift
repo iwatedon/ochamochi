@@ -24,6 +24,8 @@ class MakeTootViewController: UIViewController {
     @IBOutlet var visibilityButton : UIButton?
     @IBOutlet var visibilityText : UILabel?
     
+    @IBOutlet var customEmojiButton : UIButton?
+    
     var inReplyToId : String?
 
     var visibility: String? = nil
@@ -195,6 +197,13 @@ class MakeTootViewController: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
+    @IBAction func customEmojiButtonTapped(_ sender : UIButton) {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "CustomEmojiPickerView") {
+            (controller as! CustomEmojiPickerViewController).previousController = self
+            present(controller, animated: true, completion: nil)
+        }
+    }
+    
     func makeTootUrl(_ url: String) -> String {
         return "https://\(url)/api/v1/statuses".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
     }
@@ -202,7 +211,6 @@ class MakeTootViewController: UIViewController {
     func statusUrl(_ url : String, statusId : String) -> String {
         return "https://\(url)/api/v1/statuses/\(statusId)".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
     }
-    
 
     /*
     // MARK: - Navigation
