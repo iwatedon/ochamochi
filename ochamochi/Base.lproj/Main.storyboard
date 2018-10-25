@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Suu-7e-ZfI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Suu-7e-ZfI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,22 +110,31 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0K-KT-Jvb">
-                                <rect key="frame" x="10" y="445" width="42" height="30"/>
-                                <state key="normal" title="Public"/>
+                                <rect key="frame" x="10" y="445" width="30" height="30"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="15"/>
+                                <state key="normal" title="globe"/>
                                 <connections>
                                     <action selector="visibilityButtonTapped:" destination="TXZ-DM-8xy" eventType="touchUpInside" id="vRc-V3-LWN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98a-iJ-1fv">
+                                <rect key="frame" x="45" y="450" width="46.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fjw-xb-JzQ" firstAttribute="trailing" secondItem="4wM-sH-fma" secondAttribute="trailing" constant="10" id="Dbk-FU-dxc"/>
                             <constraint firstItem="4wM-sH-fma" firstAttribute="top" secondItem="O6o-Ba-jvD" secondAttribute="bottom" constant="10" id="Suj-ge-pAE"/>
                             <constraint firstItem="4wM-sH-fma" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="VD9-Qy-jKJ"/>
+                            <constraint firstItem="98a-iJ-1fv" firstAttribute="top" secondItem="4wM-sH-fma" secondAttribute="bottom" constant="8" id="WB7-dq-0Ds"/>
                             <constraint firstItem="O6o-Ba-jvD" firstAttribute="top" secondItem="fjw-xb-JzQ" secondAttribute="top" id="bZQ-Eq-rSY"/>
                             <constraint firstItem="fjw-xb-JzQ" firstAttribute="trailing" secondItem="O6o-Ba-jvD" secondAttribute="trailing" constant="10" id="cWO-FT-qek"/>
+                            <constraint firstItem="98a-iJ-1fv" firstAttribute="leading" secondItem="e0K-KT-Jvb" secondAttribute="trailing" constant="5" id="cmo-jx-KMP"/>
                             <constraint firstItem="O6o-Ba-jvD" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="heX-ef-eKj"/>
-                            <constraint firstItem="e0K-KT-Jvb" firstAttribute="top" secondItem="4wM-sH-fma" secondAttribute="bottom" id="lGr-x5-efP"/>
+                            <constraint firstItem="e0K-KT-Jvb" firstAttribute="top" secondItem="4wM-sH-fma" secondAttribute="bottom" constant="5" id="lGr-x5-efP"/>
                             <constraint firstItem="e0K-KT-Jvb" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="zN6-Rg-TX6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fjw-xb-JzQ"/>
@@ -153,6 +162,7 @@
                         <outlet property="textView" destination="4wM-sH-fma" id="vPP-2c-ieX"/>
                         <outlet property="tootButton" destination="Mvk-74-iRK" id="3i9-30-rwP"/>
                         <outlet property="visibilityButton" destination="e0K-KT-Jvb" id="QzB-41-DZr"/>
+                        <outlet property="visibilityText" destination="98a-iJ-1fv" id="gWE-2d-kD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJo-xZ-RCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -430,7 +440,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-RO-lEP">
-                                    <rect key="frame" x="142" y="10" width="90" height="90"/>
+                                    <rect key="frame" x="142.5" y="10" width="90" height="90"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="90" id="MH1-Kd-7bk"/>
                                         <constraint firstAttribute="width" constant="90" id="dG1-lP-By6"/>

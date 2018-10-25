@@ -22,6 +22,7 @@ class MakeTootViewController: UIViewController {
     @IBOutlet var contentLabel: UILabel?
     
     @IBOutlet var visibilityButton : UIButton?
+    @IBOutlet var visibilityText : UILabel?
     
     var inReplyToId : String?
 
@@ -170,12 +171,20 @@ class MakeTootViewController: UIViewController {
     
     @IBAction func visibilityButtonTapped(_ sender: UIButton) {
         let actionSheet = UIAlertController(title: "Visibility", message : "Select toot visibility", preferredStyle: .actionSheet)
-        ["public", "unlisted", "private", "direct"].forEach {value in
-            let action = UIAlertAction(title: value, style: .default, handler: {
+        let emojis : DictionaryLiteral = ["public" : "globe",
+                                          "unlisted": "lock-open",
+                                          "private": "lock",
+                                          "direct": "envelope"]
+        emojis.forEach {key, value in
+            let action = UIAlertAction(title: key, style: .default, handler: {
                 (_ : UIAlertAction!) in
-                self.visibility = value
+                self.visibility = key
                 self.visibilityButton!.setTitle(value, for: .normal)
+                self.visibilityText?.text = key
             })
+            if self.visibility == key {
+                action.setValue(true, forKey: "checked")
+            }
             actionSheet.addAction(action)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
