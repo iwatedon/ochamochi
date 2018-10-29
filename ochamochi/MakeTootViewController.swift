@@ -7,7 +7,7 @@
 import UIKit
 import OAuthSwift
 
-class MakeTootViewController: UIViewController {
+class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var textView: UITextView?
     @IBOutlet var tootButton: UIBarButtonItem?
     @IBOutlet var cancelButton : UIBarButtonItem?
@@ -26,9 +26,24 @@ class MakeTootViewController: UIViewController {
     
     @IBOutlet var customEmojiButton : UIButton?
     
+    @IBOutlet var photoButton: UIButton?
+    
+    @IBOutlet var imageView1 : UIImageView?
+    @IBOutlet var imageView2 : UIImageView?
+    @IBOutlet var imageView3 : UIImageView?
+    @IBOutlet var imageView4 : UIImageView?
+    
+    @IBOutlet var deleteImage1Button: UIButton?
+    @IBOutlet var deleteImage2Button: UIButton?
+    @IBOutlet var deleteImage3Button: UIButton?
+    @IBOutlet var deleteImage4Button: UIButton?
+    
     var inReplyToId : String?
 
     var visibility: String? = nil
+    
+    var images : [UIImage] = []
+    var media_ids : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,6 +178,9 @@ class MakeTootViewController: UIViewController {
         if (inReplyToId != nil) {
             parameters["in_reply_to_id"] = inReplyToId
         }
+        if (media_ids.count > 0) {
+            parameters["media_ids"] = media_ids
+        }
         
         return parameters
     }
@@ -204,12 +222,126 @@ class MakeTootViewController: UIViewController {
         }
     }
     
+    @IBAction func photoButtonTapped(_ sender: UIButton) {
+        if (self.images.count <= 3) {
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let pickerView = UIImagePickerController()
+                pickerView.sourceType = .photoLibrary
+                pickerView.delegate = self
+                self.present(pickerView, animated: true)
+            }
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        if let currentAccount = MastodonUtil.getCurrentAccount() {
+            if let currentInstance = MastodonUtil.getCurrentInstance() {
+                let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
+                oauthswift.client.credential.oauthToken = currentAccount.accessToken
+                
+                let fileData = OAuthSwiftMultipartData(name: "file", data: UIImageJPEGRepresentation(image, 0.9)!, fileName: "file.jpg", mimeType: "image/jpeg")
+                let multiparts = [fileData]
+                let _ = oauthswift.client.postMultiPartRequest(
+                    mediaUrl(currentInstance.url),
+                    method: .POST,
+                    parameters: [:],
+                    multiparts: multiparts,
+                    success: {
+                        response in
+                        do {
+                            let dataString = response.string
+                            let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
+                            let media = json as! [String:Any]
+                            
+                            self.images.append(image)
+                            self.media_ids.append(media["id"] as! String)
+                            
+                            self.refreshImages()
+                            
+                            self.dismiss(animated: true, completion: nil)
+                        } catch {
+                            print(error)
+                        }
+                }, failure: {
+                    error in
+                    print(error.localizedDescription)
+                    self.dismiss(animated: true, completion: nil)
+                })
+            }
+        }
+    }
+    
+    func refreshImages() {
+        for idx in 0...3 {
+            if (self.images.count >= idx+1) {
+                if (idx == 0) {
+                    self.imageView1!.image = self.images[0]
+                    self.deleteImage1Button?.isHidden = false
+                } else if (idx == 1) {
+                    self.imageView2!.image = self.images[1]
+                    self.deleteImage2Button?.isHidden = false
+                } else if (idx == 2) {
+                    self.imageView3!.image = self.images[2]
+                    self.deleteImage3Button?.isHidden = false
+                } else if (idx == 3) {
+                    self.imageView4!.image = self.images[3]
+                    self.deleteImage4Button?.isHidden = false
+                }
+                
+            } else {
+                if (idx == 0) {
+                    self.imageView1!.image = nil
+                    self.deleteImage1Button?.isHidden = true
+                } else if (idx == 1) {
+                    self.imageView2!.image = nil
+                    self.deleteImage2Button?.isHidden = true
+                } else if (idx == 2) {
+                    self.imageView3!.image = nil
+                    self.deleteImage3Button?.isHidden = true
+                } else if (idx == 3) {
+                    self.imageView4!.image = nil
+                    self.deleteImage4Button?.isHidden = true
+                }
+            }
+        }
+    }
+    
+    @IBAction func deleteImage1ButtonTapped(_ sender: UIButton) {
+        self.images.remove(at: 0)
+        self.media_ids.remove(at: 0)
+        refreshImages()
+    }
+    
+    @IBAction func deleteImage2ButtonTapped(_ sender: UIButton) {
+        self.images.remove(at: 1)
+        self.media_ids.remove(at: 1)
+        refreshImages()
+    }
+    
+    @IBAction func deleteImage3ButtonTapped(_ sender: UIButton) {
+        self.images.remove(at: 2)
+        self.media_ids.remove(at: 2)
+        refreshImages()
+    }
+    
+    @IBAction func deleteImage4ButtonTapped(_ sender: UIButton) {
+        self.images.remove(at: 3)
+        self.media_ids.remove(at: 3)
+        refreshImages()
+    }
+    
     func makeTootUrl(_ url: String) -> String {
         return "https://\(url)/api/v1/statuses".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
     }
     
     func statusUrl(_ url : String, statusId : String) -> String {
         return "https://\(url)/api/v1/statuses/\(statusId)".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+    }
+    
+    func mediaUrl(_ url :String) -> String {
+        return "https://\(url)/api/v1/media".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
     }
 
     /*

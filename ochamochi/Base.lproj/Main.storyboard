@@ -131,20 +131,118 @@
                                     <action selector="customEmojiButtonTapped:" destination="TXZ-DM-8xy" eventType="touchUpInside" id="b4P-8G-sRB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exh-fF-ODo">
+                                <rect key="frame" x="10" y="483" width="30" height="27"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="15"/>
+                                <state key="normal" title="image"/>
+                                <connections>
+                                    <action selector="photoButtonTapped:" destination="TXZ-DM-8xy" eventType="touchUpInside" id="2jx-gd-YJh"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tk-nu-f3T">
+                                <rect key="frame" x="10" y="518" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="FVe-As-1Ze"/>
+                                    <constraint firstAttribute="width" constant="80" id="hbD-RM-R8S"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yRQ-Dm-CUH">
+                                <rect key="frame" x="90" y="518" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="41h-AQ-BPJ"/>
+                                    <constraint firstAttribute="height" constant="80" id="dEt-KN-Wwx"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDn-Qg-NXk">
+                                <rect key="frame" x="170" y="518" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="7wd-xQ-0qc"/>
+                                    <constraint firstAttribute="height" constant="80" id="JTb-AJ-qBU"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1K-X4-4Je">
+                                <rect key="frame" x="250" y="518" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="n7g-77-RhP"/>
+                                    <constraint firstAttribute="height" constant="80" id="tkk-Sn-owC"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwp-wT-G8J">
+                                <rect key="frame" x="60" y="518" width="30" height="29"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
+                                <state key="normal" title="times">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteImage1ButtonTapped:" destination="TXZ-DM-8xy" eventType="touchUpInside" id="Hcx-b5-NSN"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ash-hq-ElA">
+                                <rect key="frame" x="140" y="518" width="30" height="29"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
+                                <state key="normal" title="times">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteImage2ButtonTapped:" destination="TXZ-DM-8xy" eventType="touchUpInside" id="K6f-Bq-UZz"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mD7-1g-sQ0">
+                                <rect key="frame" x="220" y="518" width="30" height="29"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
+                                <state key="normal" title="times">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteImage3ButtonTapped:" destination="TXZ-DM-8xy" eventType="touchUpInside" id="iKA-5C-Dqi"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9j-nP-jk5">
+                                <rect key="frame" x="300" y="518" width="30" height="29"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
+                                <state key="normal" title="times">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteImage4ButtonTapped:" destination="TXZ-DM-8xy" eventType="touchUpInside" id="Fv1-xr-Dpg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="EDn-Qg-NXk" firstAttribute="top" secondItem="exh-fF-ODo" secondAttribute="bottom" constant="5" id="0PV-CN-Wbc"/>
+                            <constraint firstItem="mD7-1g-sQ0" firstAttribute="top" secondItem="EDn-Qg-NXk" secondAttribute="top" id="66G-vI-fVk"/>
                             <constraint firstItem="YfU-M5-0GB" firstAttribute="top" secondItem="4wM-sH-fma" secondAttribute="bottom" constant="5" id="7DR-oN-cny"/>
+                            <constraint firstItem="exh-fF-ODo" firstAttribute="top" secondItem="e0K-KT-Jvb" secondAttribute="bottom" constant="5" id="8ea-7G-pci"/>
+                            <constraint firstItem="3tk-nu-f3T" firstAttribute="trailing" secondItem="bwp-wT-G8J" secondAttribute="trailing" id="A4i-cg-fAG"/>
+                            <constraint firstItem="yRQ-Dm-CUH" firstAttribute="leading" secondItem="3tk-nu-f3T" secondAttribute="trailing" id="CEa-U0-0g2"/>
                             <constraint firstItem="YfU-M5-0GB" firstAttribute="leading" secondItem="98a-iJ-1fv" secondAttribute="trailing" constant="15" id="CG1-Ix-7nv"/>
                             <constraint firstItem="fjw-xb-JzQ" firstAttribute="trailing" secondItem="4wM-sH-fma" secondAttribute="trailing" constant="10" id="Dbk-FU-dxc"/>
+                            <constraint firstItem="EDn-Qg-NXk" firstAttribute="trailing" secondItem="mD7-1g-sQ0" secondAttribute="trailing" id="JNm-fg-9Z1"/>
+                            <constraint firstItem="3tk-nu-f3T" firstAttribute="top" secondItem="exh-fF-ODo" secondAttribute="bottom" constant="5" id="Kxi-aZ-cOH"/>
                             <constraint firstItem="4wM-sH-fma" firstAttribute="top" secondItem="O6o-Ba-jvD" secondAttribute="bottom" constant="10" id="Suj-ge-pAE"/>
+                            <constraint firstItem="u9j-nP-jk5" firstAttribute="top" secondItem="s1K-X4-4Je" secondAttribute="top" id="T4i-19-IqU"/>
                             <constraint firstItem="4wM-sH-fma" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="VD9-Qy-jKJ"/>
                             <constraint firstItem="98a-iJ-1fv" firstAttribute="top" secondItem="4wM-sH-fma" secondAttribute="bottom" constant="8" id="WB7-dq-0Ds"/>
+                            <constraint firstItem="EDn-Qg-NXk" firstAttribute="leading" secondItem="yRQ-Dm-CUH" secondAttribute="trailing" id="X6n-XP-b8f"/>
                             <constraint firstItem="O6o-Ba-jvD" firstAttribute="top" secondItem="fjw-xb-JzQ" secondAttribute="top" id="bZQ-Eq-rSY"/>
+                            <constraint firstItem="bwp-wT-G8J" firstAttribute="top" secondItem="3tk-nu-f3T" secondAttribute="top" id="byg-DM-s4Y"/>
                             <constraint firstItem="fjw-xb-JzQ" firstAttribute="trailing" secondItem="O6o-Ba-jvD" secondAttribute="trailing" constant="10" id="cWO-FT-qek"/>
                             <constraint firstItem="98a-iJ-1fv" firstAttribute="leading" secondItem="e0K-KT-Jvb" secondAttribute="trailing" constant="5" id="cmo-jx-KMP"/>
+                            <constraint firstItem="yRQ-Dm-CUH" firstAttribute="top" secondItem="exh-fF-ODo" secondAttribute="bottom" constant="5" id="dG3-mi-kwo"/>
+                            <constraint firstItem="s1K-X4-4Je" firstAttribute="leading" secondItem="EDn-Qg-NXk" secondAttribute="trailing" id="e1l-ad-m92"/>
+                            <constraint firstItem="s1K-X4-4Je" firstAttribute="top" secondItem="exh-fF-ODo" secondAttribute="bottom" constant="5" id="hAd-oJ-Gug"/>
                             <constraint firstItem="O6o-Ba-jvD" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="heX-ef-eKj"/>
+                            <constraint firstItem="3tk-nu-f3T" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="hwf-JJ-1oK"/>
                             <constraint firstItem="e0K-KT-Jvb" firstAttribute="top" secondItem="4wM-sH-fma" secondAttribute="bottom" constant="5" id="lGr-x5-efP"/>
+                            <constraint firstItem="exh-fF-ODo" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="og6-X8-oKY"/>
+                            <constraint firstItem="ash-hq-ElA" firstAttribute="top" secondItem="yRQ-Dm-CUH" secondAttribute="top" id="p36-Ae-3W8"/>
+                            <constraint firstItem="s1K-X4-4Je" firstAttribute="trailing" secondItem="u9j-nP-jk5" secondAttribute="trailing" id="sUg-6w-Uh5"/>
+                            <constraint firstItem="yRQ-Dm-CUH" firstAttribute="trailing" secondItem="ash-hq-ElA" secondAttribute="trailing" id="y4q-lg-9aI"/>
                             <constraint firstItem="e0K-KT-Jvb" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="zN6-Rg-TX6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fjw-xb-JzQ"/>
@@ -167,7 +265,16 @@
                         <outlet property="cancelButton" destination="6Yu-cV-TJ4" id="6v8-c2-CmW"/>
                         <outlet property="contentLabel" destination="Ruv-hp-DBN" id="B8I-aj-1Wx"/>
                         <outlet property="customEmojiButton" destination="YfU-M5-0GB" id="ZOE-xx-OEW"/>
+                        <outlet property="deleteImage1Button" destination="bwp-wT-G8J" id="shg-Fc-hWc"/>
+                        <outlet property="deleteImage2Button" destination="ash-hq-ElA" id="XfY-Xs-ad9"/>
+                        <outlet property="deleteImage3Button" destination="mD7-1g-sQ0" id="xyH-vj-rdK"/>
+                        <outlet property="deleteImage4Button" destination="u9j-nP-jk5" id="V8L-tD-SYb"/>
                         <outlet property="displayNameLabel" destination="bEH-KI-BpB" id="hrm-pp-ZrF"/>
+                        <outlet property="imageView1" destination="3tk-nu-f3T" id="Obk-k0-zjB"/>
+                        <outlet property="imageView2" destination="yRQ-Dm-CUH" id="Wbh-Zw-fUB"/>
+                        <outlet property="imageView3" destination="EDn-Qg-NXk" id="4Gb-12-3JP"/>
+                        <outlet property="imageView4" destination="s1K-X4-4Je" id="dJg-5o-6Lh"/>
+                        <outlet property="photoButton" destination="exh-fF-ODo" id="Nh6-Dt-cWj"/>
                         <outlet property="replyView" destination="O6o-Ba-jvD" id="3qc-l4-2le"/>
                         <outlet property="replyViewHeight" destination="7c2-jr-JoR" id="1NN-gC-6b8"/>
                         <outlet property="textView" destination="4wM-sH-fma" id="vPP-2c-ieX"/>

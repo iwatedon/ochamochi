@@ -6,7 +6,7 @@ target 'ochamochi' do
   use_frameworks!
 
   # Pods for ochamochi
-  pod 'OAuthSwift', '1.1.2'
+  pod 'OAuthSwift', :git => 'https://github.com/aquarla/OAuthSwift.git', :branch => 'ochamochi'
   pod 'RealmSwift', '3.2.0'
   pod 'DateToolsSwift'
   pod 'Floaty'
