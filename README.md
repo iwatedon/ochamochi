@@ -1,5 +1,5 @@
 # What is ochamochi?
-Ofiicial Mastodon client of iwatedon.net ( [https://iwatedon.net/](https://iwatedon.net/) ).
+Official Mastodon client of iwatedon.net ( [https://iwatedon.net/](https://iwatedon.net/) ).
 
 ochamochi is in alpha state now.
 
