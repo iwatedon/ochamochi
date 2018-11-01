@@ -53,7 +53,11 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
         textView?.layer.borderWidth = 1.0
         textView?.layer.cornerRadius = 10.0
         textView?.layer.masksToBounds = true
-        
+
+        // set inset to TextView
+        textView?.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10)
+        textView?.sizeToFit()
+
         textView?.becomeFirstResponder()
 
         self.visibility = "public"
