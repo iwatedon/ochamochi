@@ -62,7 +62,7 @@
                                     <constraint firstAttribute="height" constant="250" id="rBj-lO-DGj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="twitter"/>
                             </textView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6o-Ba-jvD">
                                 <rect key="frame" x="10" y="64" width="355" height="121"/>
