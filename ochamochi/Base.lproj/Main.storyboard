@@ -211,6 +211,15 @@
                                     <action selector="deleteImage4ButtonTapped:" destination="TXZ-DM-8xy" eventType="touchUpInside" id="Fv1-xr-Dpg"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="NSFW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au6-ed-tPM">
+                                <rect key="frame" x="60" y="486" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XfR-Na-o1j">
+                                <rect key="frame" x="114" y="481" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -221,14 +230,17 @@
                             <constraint firstItem="3tk-nu-f3T" firstAttribute="trailing" secondItem="bwp-wT-G8J" secondAttribute="trailing" id="A4i-cg-fAG"/>
                             <constraint firstItem="yRQ-Dm-CUH" firstAttribute="leading" secondItem="3tk-nu-f3T" secondAttribute="trailing" id="CEa-U0-0g2"/>
                             <constraint firstItem="YfU-M5-0GB" firstAttribute="leading" secondItem="98a-iJ-1fv" secondAttribute="trailing" constant="15" id="CG1-Ix-7nv"/>
+                            <constraint firstItem="XfR-Na-o1j" firstAttribute="centerY" secondItem="exh-fF-ODo" secondAttribute="centerY" id="CJS-r0-BSJ"/>
                             <constraint firstItem="fjw-xb-JzQ" firstAttribute="trailing" secondItem="4wM-sH-fma" secondAttribute="trailing" constant="10" id="Dbk-FU-dxc"/>
                             <constraint firstItem="EDn-Qg-NXk" firstAttribute="trailing" secondItem="mD7-1g-sQ0" secondAttribute="trailing" id="JNm-fg-9Z1"/>
                             <constraint firstItem="3tk-nu-f3T" firstAttribute="top" secondItem="exh-fF-ODo" secondAttribute="bottom" constant="5" id="Kxi-aZ-cOH"/>
+                            <constraint firstItem="au6-ed-tPM" firstAttribute="leading" secondItem="exh-fF-ODo" secondAttribute="trailing" constant="20" id="P1V-xD-3Dx"/>
                             <constraint firstItem="4wM-sH-fma" firstAttribute="top" secondItem="O6o-Ba-jvD" secondAttribute="bottom" constant="10" id="Suj-ge-pAE"/>
                             <constraint firstItem="u9j-nP-jk5" firstAttribute="top" secondItem="s1K-X4-4Je" secondAttribute="top" id="T4i-19-IqU"/>
                             <constraint firstItem="4wM-sH-fma" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="VD9-Qy-jKJ"/>
                             <constraint firstItem="98a-iJ-1fv" firstAttribute="top" secondItem="4wM-sH-fma" secondAttribute="bottom" constant="8" id="WB7-dq-0Ds"/>
                             <constraint firstItem="EDn-Qg-NXk" firstAttribute="leading" secondItem="yRQ-Dm-CUH" secondAttribute="trailing" id="X6n-XP-b8f"/>
+                            <constraint firstItem="au6-ed-tPM" firstAttribute="centerY" secondItem="exh-fF-ODo" secondAttribute="centerY" id="Xsk-1x-mkJ"/>
                             <constraint firstItem="O6o-Ba-jvD" firstAttribute="top" secondItem="fjw-xb-JzQ" secondAttribute="top" id="bZQ-Eq-rSY"/>
                             <constraint firstItem="bwp-wT-G8J" firstAttribute="top" secondItem="3tk-nu-f3T" secondAttribute="top" id="byg-DM-s4Y"/>
                             <constraint firstItem="fjw-xb-JzQ" firstAttribute="trailing" secondItem="O6o-Ba-jvD" secondAttribute="trailing" constant="10" id="cWO-FT-qek"/>
@@ -237,6 +249,7 @@
                             <constraint firstItem="s1K-X4-4Je" firstAttribute="leading" secondItem="EDn-Qg-NXk" secondAttribute="trailing" id="e1l-ad-m92"/>
                             <constraint firstItem="s1K-X4-4Je" firstAttribute="top" secondItem="exh-fF-ODo" secondAttribute="bottom" constant="5" id="hAd-oJ-Gug"/>
                             <constraint firstItem="O6o-Ba-jvD" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="heX-ef-eKj"/>
+                            <constraint firstItem="XfR-Na-o1j" firstAttribute="leading" secondItem="au6-ed-tPM" secondAttribute="trailing" constant="5" id="hnx-Gl-HxP"/>
                             <constraint firstItem="3tk-nu-f3T" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="hwf-JJ-1oK"/>
                             <constraint firstItem="e0K-KT-Jvb" firstAttribute="top" secondItem="4wM-sH-fma" secondAttribute="bottom" constant="5" id="lGr-x5-efP"/>
                             <constraint firstItem="exh-fF-ODo" firstAttribute="leading" secondItem="fjw-xb-JzQ" secondAttribute="leading" constant="10" id="og6-X8-oKY"/>
@@ -274,6 +287,8 @@
                         <outlet property="imageView2" destination="yRQ-Dm-CUH" id="Wbh-Zw-fUB"/>
                         <outlet property="imageView3" destination="EDn-Qg-NXk" id="4Gb-12-3JP"/>
                         <outlet property="imageView4" destination="s1K-X4-4Je" id="dJg-5o-6Lh"/>
+                        <outlet property="nsfwLabel" destination="au6-ed-tPM" id="3IW-0a-UNy"/>
+                        <outlet property="nsfwSwitch" destination="XfR-Na-o1j" id="CV3-e5-Nvl"/>
                         <outlet property="photoButton" destination="exh-fF-ODo" id="Nh6-Dt-cWj"/>
                         <outlet property="replyView" destination="O6o-Ba-jvD" id="3qc-l4-2le"/>
                         <outlet property="replyViewHeight" destination="7c2-jr-JoR" id="1NN-gC-6b8"/>

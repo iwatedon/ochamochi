@@ -38,6 +38,9 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet var deleteImage3Button: UIButton?
     @IBOutlet var deleteImage4Button: UIButton?
     
+    @IBOutlet var nsfwSwitch: UISwitch?
+    @IBOutlet var nsfwLabel: UILabel?
+    
     var inReplyToId : String?
 
     var visibility: String? = nil
@@ -186,6 +189,7 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         if (media_ids.count > 0) {
             parameters["media_ids"] = media_ids
+            parameters["sensitive"] = self.nsfwSwitch?.isOn
         }
         
         return parameters
@@ -312,6 +316,10 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
                 }
             }
         }
+        
+        let nsfwHidden = (self.images.count == 0)
+        nsfwLabel?.isHidden = nsfwHidden
+        nsfwSwitch?.isHidden = nsfwHidden
     }
     
     @IBAction func deleteImage1ButtonTapped(_ sender: UIButton) {
