@@ -146,9 +146,9 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
             if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
-                let _  = oauthswift.client.post(
-                    url,
-                    success: { response in
+                let _  = oauthswift.client.post(url) { result in
+                    switch result {
+                    case .success(let response):
                         do {
                             // set acct to Account and save
                             let dataString = response.string
@@ -157,10 +157,10 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
                         } catch {
                             print(error)
                         }
-                },
-                    failure: { error in
+                    case .failure(let error):
                         print(error)
-                })
+                    }
+                }
             }
         }
     }
@@ -170,9 +170,9 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
             if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
-                let _  = oauthswift.client.post(
-                    url,
-                    success: { response in
+                let _  = oauthswift.client.post(url) { result in
+                    switch result {
+                    case .success(let response):
                         do {
                             // set acct to Account and save
                             let dataString = response.string
@@ -181,10 +181,10 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
                         } catch {
                             print(error)
                         }
-                },
-                    failure: { error in
+                    case .failure(let error):
                         print(error)
-                })
+                    }
+                }
             }
         }
     }
@@ -200,6 +200,7 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
         if (attachment.type == "image") {
             if let _controller = storyboard?.instantiateViewController(withIdentifier: "AttachmentDetailView") {
                 let controller = _controller as! AttachmentDetailViewController
+                controller.modalPresentationStyle = .fullScreen
                 controller.url = attachment.url
                 
                 self.present(controller, animated: true, completion: {})
@@ -239,9 +240,9 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
             if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
-                let _  = oauthswift.client.delete(
-                    self.deleteTootUrl(currentAccount.url, tootId: tootId),
-                    success: { response in
+                let _  = oauthswift.client.delete(self.deleteTootUrl(currentAccount.url, tootId: tootId)) { result in
+                    switch result {
+                    case .success(_):
                         for (index, toot) in self.toots.enumerated() {
                             if toot.id == tootId {
                                 self.toots.remove(at: index)
@@ -251,10 +252,10 @@ extension TimelineViewCellDelegate where Self: TimelineViewController {
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
-                },
-                    failure: { error in
+                    case .failure(let error):
                         print(error)
-                })
+                    }
+                }
             }
         }
     }

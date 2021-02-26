@@ -73,7 +73,7 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
                 subview.removeFromSuperview()
             }
             replyViewHeight?.constant = 0.0
-            replyViewHeight?.priority = 1000
+            replyViewHeight?.priority = UILayoutPriority(rawValue: 1000)
         } else {
             loadStatus(inReplyToId!)
         }
@@ -85,9 +85,9 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
             if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
-                let _  = oauthswift.client.get(
-                    statusUrl(currentAccount.url, statusId: statusId),
-                    success: { response in
+                let _  = oauthswift.client.get(statusUrl(currentAccount.url, statusId: statusId)) { result in
+                    switch result {
+                    case .success(let response):
                         do {
                             let dataString = response.string
                             let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -145,11 +145,11 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
                         } catch {
                             print(error)
                         }
-                }, failure: {
-                    error in
-                    print(error.localizedDescription)
-                    self.dismiss(animated: true, completion: nil)
-                })
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
             }
         }
     }
@@ -165,17 +165,15 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
             if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
-                let _  = oauthswift.client.post(
-                    makeTootUrl(currentInstance.url),
-                    parameters: self.tootParameters(),
-                    success: {
-                        response in
+                let _  = oauthswift.client.post(makeTootUrl(currentInstance.url), parameters: self.tootParameters()) { result in
+                    switch result {
+                    case .success(_):
                         self.dismiss(animated: true, completion: nil)
-                    }, failure: {
-                        error in
+                    case .failure(let error):
                         print(error.localizedDescription)
                         self.dismiss(animated: true, completion: nil)
-                    })
+                    }
+                }
             }
         }
     }
@@ -257,9 +255,9 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
                     mediaUrl(currentInstance.url),
                     method: .POST,
                     parameters: [:],
-                    multiparts: multiparts,
-                    success: {
-                        response in
+                    multiparts: multiparts) { result in
+                    switch result {
+                    case .success(let response):
                         do {
                             let dataString = response.string
                             let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -274,11 +272,11 @@ class MakeTootViewController: UIViewController, UIImagePickerControllerDelegate,
                         } catch {
                             print(error)
                         }
-                }, failure: {
-                    error in
-                    print(error.localizedDescription)
-                    self.dismiss(animated: true, completion: nil)
-                })
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
             }
         }
     }

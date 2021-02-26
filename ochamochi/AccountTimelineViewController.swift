@@ -51,9 +51,9 @@ class AccountTimelineViewController: TimelineViewController {
             if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
-                let _  = oauthswift.client.get(
-                    accountUrl(currentAccount.url, accountId: accountId!),
-                    success: { response in
+                let _  = oauthswift.client.get(accountUrl(currentAccount.url, accountId: accountId!)) { result in
+                    switch result {
+                    case .success(let response):
                         do {
                             let dataString = response.string
                             let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -75,8 +75,6 @@ class AccountTimelineViewController: TimelineViewController {
                             let size = self.headerView!.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
                             self.headerView?.frame = CGRect(x:0, y:0, width: size.width, height: size.height)
                             self.tableView.tableHeaderView = self.headerView
-                            
-                        
                             self.title = accountDisplayName
                             
                             // read avatar image
@@ -97,11 +95,11 @@ class AccountTimelineViewController: TimelineViewController {
                         } catch {
                             print(error)
                         }
-                }, failure: {
-                    error in
-                    print(error.localizedDescription)
-                    self.dismiss(animated: true, completion: nil)
-                })
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
             }
         }
     }

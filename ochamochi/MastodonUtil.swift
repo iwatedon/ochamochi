@@ -61,10 +61,9 @@ class MastodonUtil {
             if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
-                let _  = oauthswift.client.get(
-                    timelineUrl,
-                    parameters: parameters,
-                    success: { response in
+                let _  = oauthswift.client.get(timelineUrl, parameters: parameters) { result in
+                    switch result {
+                    case .success(let response):
                         do {
                             // set acct to Account and save
                             let dataString = response.string
@@ -177,10 +176,10 @@ class MastodonUtil {
                         } catch {
                             print(error)
                         }
-                },
-                    failure: { error in
+                    case .failure(let error):
                         print(error)
-                })
+                    }
+                }
             }
         }
         return
@@ -193,10 +192,9 @@ class MastodonUtil {
             if let currentInstance = MastodonUtil.getCurrentInstance() {
                 let oauthswift = OAuth2Swift(consumerKey: currentInstance.clientId, consumerSecret: currentInstance.clientSecret, authorizeUrl: "", responseType: "")
                 oauthswift.client.credential.oauthToken = currentAccount.accessToken
-                let _  = oauthswift.client.get(
-                    timelineUrl,
-                    parameters: parameters,
-                    success: { response in
+                let _  = oauthswift.client.get(timelineUrl, parameters: parameters) { result in
+                    switch result {
+                    case .success(let response):
                         do {
                             let dataString = response.string
                             let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -241,11 +239,10 @@ class MastodonUtil {
                         } catch {
                             print(error)
                         }
-                    },
-                    failure: { error in
+                    case .failure(let error):
                         print(error)
                     }
-                )
+                }
             }
         }
         

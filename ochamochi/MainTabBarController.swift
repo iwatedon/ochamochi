@@ -44,6 +44,7 @@ class MainTabBarController: UITabBarController, FloatyDelegate, UITabBarControll
     
     func toot() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "MakeTootView") {
+            controller.modalPresentationStyle = .fullScreen
             present(controller, animated: true, completion: nil)
         }
     }

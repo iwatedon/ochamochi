@@ -8,7 +8,7 @@ import Foundation
 import RealmSwift
 
 class Instance : Object {
-    dynamic var url = ""
-    dynamic var clientId = ""
-    dynamic var clientSecret = ""
+    @objc dynamic var url = ""
+    @objc dynamic var clientId = ""
+    @objc dynamic var clientSecret = ""
 }

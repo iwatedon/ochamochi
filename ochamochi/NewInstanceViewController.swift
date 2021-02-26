@@ -28,6 +28,7 @@ class NewInstanceViewController: UIViewController {
         if (self.presentingViewController == nil) {
             if let _ = MastodonUtil.getCurrentAccount() {
                 let controller = UINavigationController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabView"))
+                controller.modalPresentationStyle = .fullScreen
                 present(controller, animated: false, completion: nil)
             }
         }
@@ -49,14 +50,14 @@ class NewInstanceViewController: UIViewController {
                                        parameters: ["client_name" : "ochamochi",
                                                     "redirect_uris" : "oauth-swift://oauth-callback/ochamochi",
                                                     "scopes" : "read write follow",
-                                                    "website" : "https://github.com/iwatedon/ochamochi"],
-                                       success: { response in
-                                       self.parseResponseJson(response.string!, url: url)
-                },
-                                       failure: { error in
-                                        print(error)
+                                                    "website" : "https://github.com/iwatedon/ochamochi"]) { result in
+                    switch result {
+                    case .success(let response):
+                        self.parseResponseJson(response.string!, url: url)
+                    case .failure(let error):
+                        print(error)
+                    }
                 }
-                )
             } else {
                 let instance = instances[0]
                 openAuthorizeUrl(instance)
@@ -111,36 +112,37 @@ class NewInstanceViewController: UIViewController {
     
     private func getAccountInfo(instance: Instance, account: Account) {
         var currentAccount : Account? = nil
-        let _  = oauthswift!.client.get(self.verifyCredentialsUrl(instance),
-                              success: { response in
-                                do {
-                                    // set acct to Account and save
-                                    let dataString = response.string
-                                    let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
-                                    let dict = json as! [String:Any]
-                                    let acct = (dict["acct"] as! String) + "@" + instance.url
-                                    let realm = try! Realm()
-                                    let accounts = realm.objects(Account.self).filter(NSPredicate(format: "acct = %@", acct))
-                                    if (accounts.count == 0) {
-                                        try realm.write {
-                                            account.acct = acct
-                                            realm.add(account)
-                                            currentAccount = account
-                                        }
-                                    } else {
-                                         currentAccount = accounts[0]
-                                    }
-                                    MastodonUtil.setCurrentAccount(currentAccount!)
-                                    DispatchQueue.main.async {
-                                        self.presentMainTabBarController()
-                                    }
-                                } catch {
-                                    print(error)
-                                }
-        },
-                              failure: { error in
-                                print(error)
-        })
+        let _  = oauthswift!.client.get(self.verifyCredentialsUrl(instance)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    // set acct to Account and save
+                    let dataString = response.string
+                    let json = try JSONSerialization.jsonObject(with: dataString!.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
+                    let dict = json as! [String:Any]
+                    let acct = (dict["acct"] as! String) + "@" + instance.url
+                    let realm = try! Realm()
+                    let accounts = realm.objects(Account.self).filter(NSPredicate(format: "acct = %@", acct))
+                    if (accounts.count == 0) {
+                        try realm.write {
+                            account.acct = acct
+                            realm.add(account)
+                            currentAccount = account
+                        }
+                    } else {
+                         currentAccount = accounts[0]
+                    }
+                    MastodonUtil.setCurrentAccount(currentAccount!)
+                    DispatchQueue.main.async {
+                        self.presentMainTabBarController()
+                    }
+                } catch {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func presentMainTabBarController() {
@@ -148,6 +150,7 @@ class NewInstanceViewController: UIViewController {
             // not modal
             if let controller = storyboard?.instantiateViewController(withIdentifier: "MainTabView") {
                 let navigationController = UINavigationController(rootViewController: controller)
+                navigationController.modalPresentationStyle = .fullScreen
                 self.view.window?.rootViewController?.present(navigationController, animated: true, completion: nil)
             }
         } else {
@@ -172,17 +175,18 @@ class NewInstanceViewController: UIViewController {
         //oauthswift?.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift!)
         oauthswift?.authorizeURLHandler = AuthorizeWebViewController()
         
-        oauthswift!.authorize(withCallbackURL: "oauth-swift://oauth-callback/ochamochi", scope: "read write follow", state: "OCHAMOCHI",
-                             success: { credential, response, parameters in
-                                let account = Account()
-                                account.url = instance.url
-                                account.accessToken = credential.oauthToken
-                                
-                                self.getAccountInfo(instance: instance, account: account)
-        },
-                             failure: { error in
-                                print(error.localizedDescription)
-        })
+        oauthswift!.authorize(withCallbackURL: "oauth-swift://oauth-callback/ochamochi", scope: "read write follow", state: "OCHAMOCHI") { result in
+            switch result {
+            case .success(let (credential, response, parameters)):
+                let account = Account()
+                account.url = instance.url
+                account.accessToken = credential.oauthToken
+                
+                self.getAccountInfo(instance: instance, account: account)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 

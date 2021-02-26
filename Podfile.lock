@@ -1,39 +1,52 @@
 PODS:
-  - DateToolsSwift (4.0.0)
-  - Floaty (4.0.0)
-  - OAuthSwift (1.1.2)
-  - Realm (3.2.0):
-    - Realm/Headers (= 3.2.0)
-  - Realm/Headers (3.2.0)
-  - RealmSwift (3.2.0):
-    - Realm (= 3.2.0)
+  - DateToolsSwift (5.0.0)
+  - Floaty (4.2.0)
+  - OAuthSwift (2.1.0)
+  - Realm (10.1.4):
+    - Realm/Headers (= 10.1.4)
+  - Realm/Headers (10.1.4)
+  - RealmSwift (10.1.4):
+    - Realm (= 10.1.4)
   - WebLinking (2.0.0)
 
 DEPENDENCIES:
   - DateToolsSwift
   - Floaty
   - OAuthSwift (from `https://github.com/aquarla/OAuthSwift.git`, branch `ochamochi`)
-  - RealmSwift (= 3.2.0)
-  - WebLinking
+  - RealmSwift (= 10.1.4)
+  - WebLinking (from `https://github.com/kylef-archive/WebLinking.swift/`, branch `master`)
+
+SPEC REPOS:
+  trunk:
+    - DateToolsSwift
+    - Floaty
+    - Realm
+    - RealmSwift
 
 EXTERNAL SOURCES:
   OAuthSwift:
     :branch: ochamochi
     :git: https://github.com/aquarla/OAuthSwift.git
+  WebLinking:
+    :branch: master
+    :git: https://github.com/kylef-archive/WebLinking.swift/
 
 CHECKOUT OPTIONS:
   OAuthSwift:
-    :commit: 9fc2bf33b75e8cda18f9ed669344459699ec6b0e
+    :commit: 5704cbe417532f3f566d584672858e6099d7c914
     :git: https://github.com/aquarla/OAuthSwift.git
+  WebLinking:
+    :commit: de630b3e552c7a9d576c90f3d40237be8f976de6
+    :git: https://github.com/kylef-archive/WebLinking.swift/
 
 SPEC CHECKSUMS:
-  DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
-  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
-  OAuthSwift: a4e5e5563971918dbfb9701aff6db0bf278d0ada
-  Realm: ae552b9b9eca3a12374a589fa842f220e286a80a
-  RealmSwift: 05727129547dcab3fe828bd87bc30be903736b9c
-  WebLinking: b476999d59f78bd6649e6754d60693a7d147b00c
+  DateToolsSwift: 4207ada6ad615d8dc076323d27037c94916dbfa6
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
+  OAuthSwift: b65415797d860d0a25c7d178250cfb8cec4b83bf
+  Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
+  RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
+  WebLinking: a2ffdedbc8741b6cc490a3a06b747f7b528d6b7b
 
-PODFILE CHECKSUM: 7dcee25f38f6b6337a00d3fdb20d960f00d0b1bc
+PODFILE CHECKSUM: ac626984934a11d3dd0ea274154d6197c37304d5
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.10.1

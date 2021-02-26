@@ -18,7 +18,7 @@ class AttachmentDetailViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView?.delegate = self
         
-        imageView = UIImageView(frame: CGRect(x:0, y:0,  width: scrollView!.frame.size.width, height: scrollView!.frame.size.height))
+        imageView = UIImageView()
         imageView?.contentMode = UIViewContentMode.scaleAspectFit
         scrollView?.addSubview(imageView!)
 
@@ -42,6 +42,13 @@ class AttachmentDetailViewController: UIViewController, UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
+    }
+    
+    override func viewWillLayoutSubviews() {
+        imageView?.frame = CGRect(x: 0,
+                                  y : 0,
+                                  width: UIScreen.main.bounds.size.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right,
+                                  height: UIScreen.main.bounds.size.height - self.view.safeAreaInsets.top - self.view.safeAreaInsets.bottom)
     }
     
     @IBAction func closeButtonTapped(_ sender : UIButton?) {

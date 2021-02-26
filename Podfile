@@ -7,10 +7,10 @@ target 'ochamochi' do
 
   # Pods for ochamochi
   pod 'OAuthSwift', :git => 'https://github.com/aquarla/OAuthSwift.git', :branch => 'ochamochi'
-  pod 'RealmSwift', '3.2.0'
+  pod 'RealmSwift', '=10.1.4'
   pod 'DateToolsSwift'
   pod 'Floaty'
-  pod 'WebLinking'
+  pod 'WebLinking', :git => 'https://github.com/kylef-archive/WebLinking.swift/', :branch => 'master'
 
   target 'ochamochiTests' do
     inherit! :search_paths

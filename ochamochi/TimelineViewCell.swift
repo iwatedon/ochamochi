@@ -104,7 +104,7 @@ class TimelineViewCell : UITableViewCell, UITextViewDelegate {
         clearAllImages()
     }
     
-    func tappedImageView(_ sender: UITapGestureRecognizer) {
+    @objc func tappedImageView(_ sender: UITapGestureRecognizer) {
         if (accountId != nil) {
             delegate?.accountDetail(accountId!)
         }

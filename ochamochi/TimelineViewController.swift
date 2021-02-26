@@ -38,7 +38,7 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
         self.tableView.addSubview(refreshControl!)
     }
     
-    func onRefresh(_ sender: UIRefreshControl) {
+    @objc func onRefresh(_ sender: UIRefreshControl) {
         refreshControl!.beginRefreshing()
         
         loadTimeline()
@@ -110,8 +110,10 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
             if (isLoading == true) {
                 return
             } else if tableView.contentOffset.y + tableView.frame.size.height > tableView.contentSize.height && tableView.isDragging {
-                isLoading = true
-                loadTimeline(maxId: currentMaxId!)
+                if let maxId = currentMaxId {
+                    isLoading = true
+                    loadTimeline(maxId: maxId)
+                }
             }
         }
     }
@@ -140,7 +142,7 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
         return result
     }
     
-    func logout() {
+    @objc func logout() {
         do {
             let realm = try Realm()
             try realm.write {
@@ -170,6 +172,7 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
     
     @objc func openSelectAccountView(_ sender: UILabel) {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "SelectAccountView") {
+            controller.modalPresentationStyle = .fullScreen
             present(controller, animated: true, completion: nil)
         }
     }
@@ -187,7 +190,7 @@ class TimelineViewController: UITableViewController, TimelineViewDelegate, Timel
     
     func setupRightBarButtonItems() {
         let item1 = UIBarButtonItem(title: "sign-out-alt", style: .plain, target: self, action: #selector(TimelineViewController.logout))
-        item1.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome5FreeSolid", size: 20)], for: .normal)
+        item1.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "FontAwesome5FreeSolid", size: 20) ?? "hoge"], for: .normal)
         self.parent!.navigationItem.rightBarButtonItems = [item1]
     }
 

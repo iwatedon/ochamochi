@@ -8,7 +8,7 @@ import Foundation
 import RealmSwift
 
 class Account : Object {
-    dynamic var url = ""
-    dynamic var accessToken = ""
-    dynamic var acct = ""
+    @objc dynamic var url = ""
+    @objc dynamic var accessToken = ""
+    @objc dynamic var acct = ""
 }

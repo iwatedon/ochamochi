@@ -24,12 +24,12 @@ extension UIImage {
         let strokeWidth: CGFloat = fontSize == 0 ? 0 : (-100 * borderWidth / fontSize)
         
         let attributedString = NSAttributedString(string: name, attributes: [
-            NSFontAttributeName : UIFont(name: "FontAwesome5FreeSolid", size: fontSize),
-            NSForegroundColorAttributeName: textColor,
-            NSBackgroundColorAttributeName: backgroundColor,
-            NSParagraphStyleAttributeName: paragraph,
-            NSStrokeWidthAttributeName: strokeWidth,
-            NSStrokeColorAttributeName: borderColor
+            NSAttributedStringKey.font : UIFont(name: "FontAwesome5FreeSolid", size: fontSize),
+            NSAttributedStringKey.foregroundColor: textColor,
+            NSAttributedStringKey.backgroundColor: backgroundColor,
+            NSAttributedStringKey.paragraphStyle: paragraph,
+            NSAttributedStringKey.strokeWidth: strokeWidth,
+            NSAttributedStringKey.strokeColor: borderColor
             ])
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)

@@ -6,7 +6,7 @@
 
 import Foundation
 
-// Non Realm
+// Non-Realm
 class Mention {
     var url: String? = nil
     var username: String? = nil

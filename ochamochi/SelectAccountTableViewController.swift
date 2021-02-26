@@ -109,6 +109,7 @@ class SelectAccountTableViewController: UITableViewController {
     
     @IBAction func add() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "NewInstanceView") {
+            controller.modalPresentationStyle = .fullScreen
             present(controller, animated: true, completion: nil)
         }
     }
